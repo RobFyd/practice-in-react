@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     document.title = `Counter: ${count}, name: ${name}`;
-  }, [count]);
+  }, [count, name]);
 
   return (
     <>
