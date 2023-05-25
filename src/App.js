@@ -3,24 +3,20 @@ import './App.css';
 
 function App() {
   const [counter, setCounter] = useState(0);
-  const intervalRef = useRef(null);
+  const intervalId = useRef();
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setCounter(counter => counter + 0.5);
+    intervalId.current = setInterval(() => {
+      setCounter(counter => counter + 1);
     }, 1000);
   }, []);
 
-const stopCounter = () => {
-  clearInterval(intervalRef.current);
-};
+  const stopCounter = () => clearInterval(intervalId.current);
 
   return (
     <>
-    <p>{counter}</p>
-    <p>
+      <p>{counter}</p>
       <button onClick={stopCounter}>STOP COUNTER</button>
-    </p>
     </>
   );
 }
