@@ -1,27 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 function App() {
-
-  const [count, setCount] = useState(0);
+  const [counter, setCounter] = useState(0);
+  const intervalRef = useRef(null);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCount(count => count + 1);
+    intervalRef.current = setInterval(() => {
+      setCounter(counter => counter + 0.5);
     }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
   }, []);
+
+const stopCounter = () => {
+  clearInterval(intervalRef.current);
+};
 
   return (
     <>
-      <p>
-        Counter: {count}
-      </p>
+    <p>{counter}</p>
+    <p>
+      <button onClick={stopCounter}>STOP COUNTER</button>
+    </p>
     </>
   );
 }
 
 export default App;
+
