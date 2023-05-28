@@ -8,9 +8,20 @@ const useDocumentTitle = (counter) => {
 };
 
 function App() {
-  const [counter, setCounter] = useState(0);
+  const getInitialCounter = () => {
+    const localStorageCounter = localStorage.getItem("counter");
+    if (localStorageCounter === null) {
+      return 0;
+    }
+    return JSON.parse(localStorage.getItem("counter"));
+  };
 
-useDocumentTitle(counter);
+  const [counter, setCounter] = useState(getInitialCounter);
+  useEffect(() => {
+    localStorage.setItem("counter", JSON.stringify(counter));
+  }, [counter]);
+
+  useDocumentTitle(counter);
 
   return (
     <>
@@ -22,3 +33,4 @@ useDocumentTitle(counter);
 
 export default App;
 
+//5:15 min
