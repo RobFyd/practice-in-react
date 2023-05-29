@@ -7,7 +7,12 @@ const Button = styled.button`
   padding: 10px;
   margin: 10px;
   background: white;
-  color: ${({ color }) => color || "crimson"};
+  color: crimson;
+`;
+
+const PrimaryButton = styled(Button)`
+  background: crimson;
+  color: black;
 `;
 
 function App() {
@@ -15,7 +20,7 @@ function App() {
     <>
       <Button>Click me</Button>
       <Button>Click me</Button>
-      <Button color="blue">Main button</Button>
+      <PrimaryButton>Main button</PrimaryButton>
     </>
   )
 }
