@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-// import './App.css';
 
 const Button = styled.button`
   border: 2px solid crimson;
@@ -8,19 +7,14 @@ const Button = styled.button`
   margin: 10px;
   background: white;
   color: crimson;
-`;
-
-const PrimaryButton = styled(Button)`
-  background: crimson;
-  color: black;
+  text-decoration: none;
 `;
 
 function App() {
   return (
     <>
       <Button>Click me</Button>
-      <Button>Click me</Button>
-      <PrimaryButton>Main button</PrimaryButton>
+      <Button as="a" href="https://google.com">Google</Button>
     </>
   )
 }
