@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 // import './App.css';
 
 const Button = styled.button`
@@ -8,11 +8,20 @@ const Button = styled.button`
   margin: 10px;
   background: white;
   color: crimson;
+
+  ${({ primary }) => primary && css`
+  background: crimson;
+  color: white;
+  `}
 `;
 
 function App() {
   return (
-    <Button>Click me</Button>
+    <>
+      <Button>Click me</Button>
+      <Button>Click me</Button>
+      <Button primary>Main button</Button>
+    </>
   )
 }
 
