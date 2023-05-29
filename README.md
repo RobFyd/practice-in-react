@@ -7,3 +7,4 @@ Practical exercises in React.js. In the repository's history, you will find exam
 - useRef
 - intervalId
 - custom hooks
+- styled components

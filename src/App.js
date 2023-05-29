@@ -1,39 +1,19 @@
-import { useState, useEffect } from "react";
-import './App.css';
+import styled from "styled-components";
+// import './App.css';
 
-const useWindowDimenmsions = () => {
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  const updateDimensions = () => {
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  }
-
-  useEffect(() => {
-    window.addEventListener("resize", updateDimensions);
-
-    return () => {
-      window.removeEventListener("resize", updateDimensions)
-    };
-  }, []);
-
-  return dimensions;
-}
+const Button = styled.button`
+  border: 2px solid crimson;
+  box-shadow: 0 0 4px black;
+  padding: 10px;
+  margin: 10px;
+  background: white;
+  color: crimson;
+`;
 
 function App() {
-const dimensions = useWindowDimenmsions();
-
   return (
-    <>
-      width: {dimensions.width}<br />
-      height: {dimensions.height}<br />
-    </>
-  );
+    <Button>Click me</Button>
+  )
 }
 
 export default App;
