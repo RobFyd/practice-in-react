@@ -1,22 +1,37 @@
-import { useEffect } from "react";
-import { useLocalStorageState } from "./useLocalStorageState";
+import { useState, useEffect } from "react";
 import './App.css';
 
-const useDocumentTitle = (counter) => {
+const useWindowDimenmsions = () => {
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  const updateDimensions = () => {
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  }
+
   useEffect(() => {
-    document.title = `Counter: ${counter}`;
-  }, [counter]);
-};
+    window.addEventListener("resize", updateDimensions);
+
+    return () => {
+      window.removeEventListener("resize", updateDimensions)
+    };
+  }, []);
+
+  return dimensions;
+}
 
 function App() {
-
-  const [counter, setCounter] = useLocalStorageState("counter", 0);
-  useDocumentTitle(counter);
+const dimensions = useWindowDimenmsions();
 
   return (
     <>
-      <p>{counter}</p>
-      <button onClick={() => setCounter(counter + 1)}>increase counter</button>
+      width: {dimensions.width}<br />
+      height: {dimensions.height}<br />
     </>
   );
 }
