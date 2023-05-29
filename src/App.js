@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useLocalStorageState } from "./useLocalStorageState";
 import './App.css';
 
 const useDocumentTitle = (counter) => {
@@ -8,19 +9,8 @@ const useDocumentTitle = (counter) => {
 };
 
 function App() {
-  const getInitialCounter = () => {
-    const localStorageCounter = localStorage.getItem("counter");
-    if (localStorageCounter === null) {
-      return 0;
-    }
-    return JSON.parse(localStorage.getItem("counter"));
-  };
 
-  const [counter, setCounter] = useState(getInitialCounter);
-  useEffect(() => {
-    localStorage.setItem("counter", JSON.stringify(counter));
-  }, [counter]);
-
+  const [counter, setCounter] = useLocalStorageState("counter", 0);
   useDocumentTitle(counter);
 
   return (
@@ -32,5 +22,3 @@ function App() {
 }
 
 export default App;
-
-//5:15 min
