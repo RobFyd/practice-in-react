@@ -1,6 +1,12 @@
 import styled, { css } from "styled-components";
 
-const Button = styled.button`
+const Button = ({ className }) => (
+  <button className={className}>
+    New Btn
+  </button>
+);
+
+const StyledButton = styled(Button)`
   border: 2px solid crimson;
   box-shadow: 0 0 4px black;
   padding: 10px;
@@ -13,8 +19,7 @@ const Button = styled.button`
 function App() {
   return (
     <>
-      <Button>Click me</Button>
-      <Button as="a" href="https://google.com">Google</Button>
+      <StyledButton>Click me</StyledButton>
     </>
   )
 }
