@@ -19,6 +19,11 @@ const StyledButton = styled(Button)`
     background: yellow;
     color: black;
   }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 function App() {
@@ -30,21 +35,3 @@ function App() {
 }
 
 export default App;
-
-
-//         increasing specificity
-
-// && {
-//   border: 2px solid crimson;
-//   box-shadow: 0 0 4px black;
-//   padding: 10px;
-//   margin: 10px;
-//   background: white;
-//   color: crimson;
-//   text-decoration: none;
-
-//   &:hover {
-//     background: yellow;
-//     color: black;
-//   }
-// }
