@@ -27,22 +27,21 @@ const tasksReducer = (state = initialState, action) => {
   }
 };
 
+const addTask = (content) => ({
+  type: "addTask",
+  payload: content,
+});
+
 const store = configureStore({ reducer: tasksReducer });
 console.log(store.getState());
 
 // dispatch the only method for store::::
 
-store.dispatch({
-    type: "addTask",
-    payload: "learn to dispatch"
-})
+store.dispatch(addTask("work one"));
 
 console.log(store.getState());
 
-store.dispatch({
-    type: "addTask",
-    payload: "learn to dispatch and then party"
-})
+store.dispatch(addTask("work two"));
 
 console.log(store.getState());
 
