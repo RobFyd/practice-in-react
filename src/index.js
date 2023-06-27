@@ -30,10 +30,21 @@ const tasksReducer = (state = initialState, action) => {
 const store = configureStore({ reducer: tasksReducer });
 console.log(store.getState());
 
-const addTaskAction = {
-  type: "addTask",
-  payload: "learn reducer",
-};
+// dispatch the only method for store::::
+
+store.dispatch({
+    type: "addTask",
+    payload: "learn to dispatch"
+})
+
+console.log(store.getState());
+
+store.dispatch({
+    type: "addTask",
+    payload: "learn to dispatch and then party"
+})
+
+console.log(store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
