@@ -32,18 +32,23 @@ const addTask = (content) => ({
   payload: content,
 });
 
-const store = configureStore({ reducer: tasksReducer });
-console.log(store.getState());
+const selectTasks = ({tasks}) => tasks;  // selector
 
-// dispatch the only method for store::::
+const store = configureStore({ reducer: tasksReducer });
+console.log(selectTasks(store.getState()));
+
+// dispatch the only one method for store::::
 
 store.dispatch(addTask("work one"));
 
-console.log(store.getState());
+console.log(selectTasks(store.getState()));
 
 store.dispatch(addTask("work two"));
 
-console.log(store.getState());
+console.log(selectTasks(store.getState()));
+
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
