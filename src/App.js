@@ -1,5 +1,3 @@
-// test comment
-
 import styled, { ThemeProvider } from "styled-components";
 
 const theme = {
