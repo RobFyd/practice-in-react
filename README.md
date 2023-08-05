@@ -8,3 +8,4 @@ Practical exercises in React.js. In the repository's history, you will find exam
 - intervalId
 - custom hooks
 - styled components
+- branches
