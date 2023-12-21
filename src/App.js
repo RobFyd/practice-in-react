@@ -1,13 +1,11 @@
-import { ThemeProvider } from "styled-components";
-import { theme } from "./theme";
-import { StyledButton } from "./styled";
+
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <StyledButton></StyledButton>
-    </ThemeProvider>
-  )
+ return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+ )
 }
 
 export default App;
