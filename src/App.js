@@ -1,3 +1,17 @@
+
+const tasks = [
+  {
+    id: 1,
+    content: "React start",
+    done: false,
+  },
+  {
+    id: 2,
+    content: "Eat breakfast",
+    done: true,
+  },
+];
+
 function App() {
   return (
     <>
