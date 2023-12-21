@@ -1,11 +1,27 @@
-
-
 function App() {
- return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
- )
+  return (
+    <>
+      <h1>Tasks List</h1>
+      <form className="js-form">
+        <div>
+          <h2>Add task</h2>
+          <div>
+            <input className="form__field js-newTask" autoFocus />
+            <button className="form__button js-addTask">Add new task</button>
+          </div>
+        </div>
+      </form>
+      <div>
+        <div>
+          <h2>Tasks list</h2>
+          <div className="section__buttons js-buttons"></div>
+        </div>
+        <ul className="tasks js-tasks"></ul>
+      </div>
+      <div className="js-stats"></div>
+      <button className="thumbUp js-thumbUp"></button>
+    </>
+  );
 }
 
 export default App;
