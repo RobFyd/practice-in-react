@@ -5,3 +5,21 @@
     list-style: none;
     padding: 0;
 }
+
+.list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+    border: solid 1px black;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.list__item--done {
+    display: none;
+}
+
+.list__item--highLight {
+    background-color: yellow;
+}
