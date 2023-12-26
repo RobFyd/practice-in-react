@@ -1,3 +1,5 @@
+import Form from "./Form";
+
 const tasks = [
   {
     id: 1,
@@ -19,10 +21,7 @@ function App() {
       <h1>Tasks List</h1>
       <div>
         <h2>Add task</h2>
-        <form className="form">
-          <input className="form__field" placeholder="what to do?" autoFocus />
-          <button className="form__button">Add new task</button>
-        </form>
+        <Form />
       </div>
       <div>
         <div>
