@@ -23,3 +23,29 @@
 .list__item--highLight {
     background-color: yellow;
 }
+
+.task__highLight {
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+.task__highLight--active {
+    border-radius: 2px;
+    border: 1px solid yellow;
+    background-color: black;
+}
+
+.task__done {
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+.task__done--active {
+    background-color: #00d26a;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+.task__content--done {
+    text-decoration: line-through;
+}

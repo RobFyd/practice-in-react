@@ -6,11 +6,13 @@ const tasks = [
     id: 1,
     content: "React start",
     done: false,
+    important: true,
   },
   {
     id: 2,
     content: "Eat breakfast",
     done: true,
+    important: false,
   },
 ];
 

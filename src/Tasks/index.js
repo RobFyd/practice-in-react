@@ -9,7 +9,22 @@ const Tasks = (props) => (
         }${task.important ? " list__item--highLight" : ""}`}
         key={task.id}
       >
-        {task.content}
+        <button
+          className={`task__highLight
+          task.important ? " task__highLight--active" : ""`}>
+          {task.important ? "💫" : "⭐"}
+        </button>
+
+        <button
+          className={`task__done {
+          task.done ? " task__done--active" : ""`}>
+          {task.done ? "✅" : "✔️"}
+        </button>
+
+        <span className={`task__content {task.done ? "task__content--done" : ""}`}>{
+      task.content
+    }</span>
+
       </li>
     ))}
   </ul>
