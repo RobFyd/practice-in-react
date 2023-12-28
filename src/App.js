@@ -1,5 +1,6 @@
 import Form from "./Form";
 import Tasks from "./Tasks";
+import Buttons from "./Buttons";
 
 const tasks = [
   {
@@ -29,7 +30,7 @@ function App() {
       <div>
         <div>
           <h2>Tasks list</h2>
-          <div className="section__buttons"></div>
+          <Buttons />
         </div>
         <Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />
       </div>
