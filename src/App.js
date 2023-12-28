@@ -30,7 +30,7 @@ function App() {
       <div>
         <div>
           <h2>Tasks list</h2>
-          <Buttons />
+          <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
         </div>
         <Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />
       </div>
