@@ -24,7 +24,7 @@ let hideDoneTasks = false;
 function App() {
   return (
     <main>
-      <h1>Tasks List</h1>
+      <h1 className="mainHeader">Tasks List</h1>
       <Section title="Add task" form={<Form />} />
 
       <Section

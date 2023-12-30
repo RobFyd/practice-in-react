@@ -1,4 +1,6 @@
 .section {
     margin: 20px;
     background-color: bisque;
+    border: 3px solid lightblue;
+    padding: 2px;
 }
