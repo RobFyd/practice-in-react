@@ -1,11 +1,10 @@
-import Form from "../Form";
 import "./style.css";
 
-const Section = ({ title, title2, body, extraHeaderContent }) => (
+const Section = ({ title, form, title2, extraHeaderContent, body }) => (
   <section className="section">
     <div>
       <h2>{title}</h2>
-      <Form />
+      {form}
     </div>
     <div>
       <div>

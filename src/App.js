@@ -24,20 +24,15 @@ function App() {
   return (
     <main>
       <h1>Tasks List</h1>
-      {/* <Section title="Add task" body={<Form />} /> */}
-      <section className="section">
-        <div>
-          <h2>Add task</h2>
-          <Form />
-        </div>
-        <div>
-          <div>
-            <h2>Tasks list</h2>
-            <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
-          </div>
-          <Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />
-        </div>
-      </section>
+      <Section
+        title="Add task"
+        form={<Form />}
+        title2="Tasks List"
+        extraHeaderContent={
+          <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
+        }
+        body={<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />}
+      />
       <section>
         <div className="stats"></div>
         <button className="thumbUp"></button>
