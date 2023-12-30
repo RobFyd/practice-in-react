@@ -1,3 +1,4 @@
+import Header from "./Header";
 import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
@@ -24,7 +25,7 @@ let hideDoneTasks = false;
 function App() {
   return (
     <main>
-      <h1 className="mainHeader">Tasks List</h1>
+      <Header />
       <Section title="Add task" form={<Form />} />
 
       <Section
