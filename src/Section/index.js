@@ -1,20 +1,20 @@
 import Form from "../Form";
-import Tasks from "../Tasks";
-import Buttons from "../Buttons";
 import "./style.css";
 
-const Section = (props) => (
+const Section = ({ title, title2, body, extraHeaderContent }) => (
   <section className="section">
     <div>
-      <h2>Add task</h2>
+      <h2>{title}</h2>
       <Form />
     </div>
     <div>
       <div>
-        <h2>Tasks list</h2>
-        <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
+        <h2>{title2}</h2>
+        {extraHeaderContent}
       </div>
-      <Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />
+      <div className="section__body">
+        {body}
+      </div>
     </div>
   </section>
 );
