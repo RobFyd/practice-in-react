@@ -2,6 +2,7 @@ import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
 import Section from "./Section";
+import "./style.css";
 
 const tasks = [
   {
@@ -33,10 +34,11 @@ function App() {
         }
         body={<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />}
       />
-      <section>
-        <div className="stats"></div>
-        <button className="thumbUp"></button>
-      </section>
+      <Section
+        title="Stats"
+        stats={<div className="stats"></div>}
+        thumb={<button className="thumbUp" />}
+      />
     </main>
   );
 }
