@@ -1,3 +1,4 @@
+import Container from "./Container";
 import Header from "./Header";
 import Form from "./Form";
 import Tasks from "./Tasks";
@@ -24,8 +25,9 @@ let hideDoneTasks = false;
 
 function App() {
   return (
-    <main>
-      <Header />
+    <Container>
+      <Header title="Task List" />
+
       <Section title="Add task" form={<Form />} />
 
       <Section
@@ -41,7 +43,7 @@ function App() {
         stats={<div className="stats"></div>}
         thumb={<button className="thumbUp" />}
       />
-    </main>
+    </Container>
   );
 }
 
