@@ -5,9 +5,9 @@ import Tasks from "./Tasks";
 import Buttons from "./Buttons";
 import Section from "./Section";
 import "./style.css";
-import hello, { name } from "./utilis/hello";
+import { hello as goodMorning, name } from "./utilis/hello";
 
-hello();
+goodMorning();
 console.log(name);
 
 const tasks = [

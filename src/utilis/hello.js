@@ -11,11 +11,20 @@
 
 // export { hello, name };
 
-const hello = () => {
-    console.log("Hello");
-  };
-  const name = "Dev !";
-  
-  export { name };
+// const hello = () => {
+//     console.log("Hello");
+//   };
+//   const name = "Dev !";
 
-  export default hello;
+//   export { name };
+
+//   export default hello;
+
+const hello = () => {
+  console.log("Hello");
+};
+const name = "Dev !";
+
+export { name };
+
+export { hello };
