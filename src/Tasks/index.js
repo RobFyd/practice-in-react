@@ -1,37 +1,45 @@
 import "./style.css";
 
-const Tasks = (props) => (
-  <ul className="tasks">
-    {props.tasks.map((task) => (
-      <li
-        className={`list__item ${
-          task.done && props.hideDoneTasks ? "list__item--done" : ""
-        }${task.important ? " list__item--highLight" : ""}`}
-        key={task.id}
-      >
-        <button
-          className={`task__highLight
-          ${task.important ? " task__highLight--active" : ""}`}
-        >
-          {task.important ? "💫" : "⭐"}
-        </button>
+const Tasks = (props) => {
+  const onDelete = () => console.log("delete");
 
-        <button
-          className={`task__done ${task.done ? " task__done--active" : ""}`}
+  return (
+    <ul className="tasks">
+      {props.tasks.map((task) => (
+        <li
+          className={`list__item ${
+            task.done && props.hideDoneTasks ? "list__item--done" : ""
+          }${task.important ? " list__item--highLight" : ""}`}
+          key={task.id}
         >
-          {task.done ? "✅" : "✔️"}
-        </button>
+          <button
+            className={`task__highLight
+            ${task.important ? " task__highLight--active" : ""}`}
+          >
+            {task.important ? "💫" : "⭐"}
+          </button>
 
-        <span
-          className={`task__content ${task.done ? "task__content--done" : ""}`}
-        >
-          {task.content}
-        </span>
+          <button
+            className={`task__done ${task.done ? " task__done--active" : ""}`}
+          >
+            {task.done ? "✅" : "✔️"}
+          </button>
 
-        <button className="task__remove">❌</button>
-      </li>
-    ))}
-  </ul>
-);
+          <span
+            className={`task__content ${
+              task.done ? "task__content--done" : ""
+            }`}
+          >
+            {task.content}
+          </span>
+
+          <button className="task__remove" onClick={onDelete}>
+            ❌
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default Tasks;
