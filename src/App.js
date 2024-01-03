@@ -6,6 +6,7 @@ import Buttons from "./Buttons";
 import Section from "./Section";
 import "./style.css";
 import { hello as goodMorning, name } from "./utilis/hello";
+import { useState } from "react";
 
 goodMorning();
 console.log(name);
@@ -28,26 +29,35 @@ const tasks = [
 let hideDoneTasks = false;
 
 function App() {
+const [count, setCount] = useState(0);
+
   return (
-    <Container>
-      <Header title="Task List" />
+    <>
+      <Container>
+        <Header title="Task List" />
 
-      <Section title="Add task" form={<Form />} />
+        <Section title="Add task" form={<Form />} />
 
-      <Section
-        title="Tasks list"
-        body={<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />}
-        extraHeaderContent={
-          <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
-        }
-      />
+        <Section
+          title="Tasks list"
+          body={<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />}
+          extraHeaderContent={
+            <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
+          }
+        />
 
-      <Section
-        title="Stats"
-        stats={<div className="stats"></div>}
-        thumb={<button className="thumbUp" />}
-      />
-    </Container>
+        <Section
+          title="Stats"
+          stats={<div className="stats"></div>}
+          thumb={<button className="thumbUp" />}
+        />
+      </Container>
+      
+      <div className="container">
+            <p>Counter: {count}</p>
+            <button onClick={() => setCount(count + 10)}>+10</button>
+      </div>
+    </>
   );
 }
 
