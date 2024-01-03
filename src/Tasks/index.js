@@ -1,7 +1,9 @@
 import "./style.css";
 
 const Tasks = (props) => {
-  const onDelete = () => console.log("delete");
+  // const onDelete = (content) => {
+  //   console.log(`Task to delete: ${content}`);
+  // };
 
   return (
     <ul className="tasks">
@@ -33,7 +35,10 @@ const Tasks = (props) => {
             {task.content}
           </span>
 
-          <button className="task__remove" onClick={onDelete}>
+          <button
+            className="task__remove"
+            // onClick={() => onDelete(task.content)}
+          >
             ❌
           </button>
         </li>
