@@ -29,10 +29,17 @@ const tasks = [
 let hideDoneTasks = false;
 
 function App() {
-const [count, setCount] = useState(0);
+  const [value, setCount] = useState(0);
 
   return (
     <>
+      <div className="containerCount">
+        <p className="containerP">Counter: {value}</p>
+        <div className="containerB">
+        <button onClick={() => setCount(value => value + 10)}>+10</button>
+        </div>
+      </div>
+
       <Container>
         <Header title="Task List" />
 
@@ -52,11 +59,6 @@ const [count, setCount] = useState(0);
           thumb={<button className="thumbUp" />}
         />
       </Container>
-      
-      <div className="container">
-            <p>Counter: {count}</p>
-            <button onClick={() => setCount(count + 10)}>+10</button>
-      </div>
     </>
   );
 }

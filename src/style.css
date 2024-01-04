@@ -11,3 +11,18 @@
 .with-emoji::before {
     content: "👍 ";
 }
+
+.containerCount {
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+.containerP {
+    display: flex;
+    justify-content: center;
+}
+
+.containerB {
+    display: flex;
+    justify-content: center;
+}
