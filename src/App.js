@@ -29,13 +29,30 @@ const tasks = [
 let hideDoneTasks = false;
 
 function App() {
-  const [value, setCount] = useState(0);  // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
+  const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
+
+  const [name, setName] = useState(""); // <form> in react
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(`Name: ${name} was sent`);
+  };
 
   return (
     <>
-      <div className="containerCount">
-        <p className="containerP">Counter: {value}</p>
-        <button className="containerB" onClick={() => setCount(value => value + 10)}>+10</button>
+      <div className="containerDiv">
+        <p className="containerP">Counter: {count}</p>
+        <button onClick={() => setCount((count) => count + 10)}>+10</button>
+      </div>
+
+      <div className="containerDiv">
+        <form onSubmit={onFormSubmit}>
+          <input
+            value={name}
+            onChange={({ target }) => setName(target.value)}
+          />
+          <button>Send</button>
+          <p>{name}</p>
+        </form>
       </div>
 
       <Container>
