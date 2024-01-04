@@ -29,15 +29,13 @@ const tasks = [
 let hideDoneTasks = false;
 
 function App() {
-  const [value, setCount] = useState(0);
+  const [value, setCount] = useState(0);  // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
 
   return (
     <>
       <div className="containerCount">
         <p className="containerP">Counter: {value}</p>
-        <div className="containerB">
-        <button onClick={() => setCount(value => value + 10)}>+10</button>
-        </div>
+        <button className="containerB" onClick={() => setCount(value => value + 10)}>+10</button>
       </div>
 
       <Container>

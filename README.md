@@ -4,6 +4,8 @@
 Practical exercises in React.js. In the repository's history, you will find examples of hooks or items such as:
 
 - js modules
+- events in React
+- useState
 - useEffect
 - useRef
 - intervalId
