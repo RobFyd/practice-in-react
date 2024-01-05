@@ -33,7 +33,7 @@ function App() {
 
   const [name, setName] = useState(""); // <form> in react - <input> and <textarea>
   const [age, setAge] = useState(""); // <form> in react - <select>
-  const onSelectChange = ({ target }) => setAge(target.value);
+  const onSelectChange = ({ target }) => setAge(target.value); // for <select> in <form>
   const onFormSubmit = (event) => {
     event.preventDefault();
     console.log(`Name: ${name} and age: ${age} was sent`);
@@ -60,18 +60,12 @@ function App() {
           <p>{name}</p>
           <select value={age} onChange={onSelectChange}>
             <option value="">--Please choose an option--</option>
-            <option>1 - 49</option>
-            <option>50+</option>
+            <option>1 - 20</option>
+            <option>21 - 50</option>
+            <option>51 - 100</option>
           </select>
         </form>
       </div>
-
-      {/* <div className="containerDiv">
-        <form onSubmit={onFormSubmit2}>
-          
-          <button>Send</button>
-        </form>
-      </div> */}
 
       <Container>
         <Header title="Task List" />

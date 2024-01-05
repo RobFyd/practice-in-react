@@ -5,6 +5,7 @@ Practical exercises in React.js. In the repository's history, you will find exam
 
 - js modules
 - events in React
+- forms in React
 - useState
 - useEffect
 - useRef
