@@ -31,10 +31,16 @@ let hideDoneTasks = false;
 function App() {
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
 
-  const [name, setName] = useState(""); // <form> in react
+  const [name, setName] = useState(""); // <form> in react - <input> and <textarea>
+  const [age, setAge] = useState(""); // <form> in react - <select>
+  const onSelectChange = ({ target }) => setAge(target.value);
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log(`Name: ${name} was sent`);
+    console.log(`Name: ${name} and age: ${age} was sent`);
+  };
+
+  const onFormSubmit2 = (event) => {
+    event.preventDefault();
   };
 
   return (
@@ -46,14 +52,26 @@ function App() {
 
       <div className="containerDiv">
         <form onSubmit={onFormSubmit}>
-          <input                             // <input> in react is same as <textarea>
+          <input // <input> in react is same as <textarea>
             value={name}
             onChange={({ target }) => setName(target.value)}
           />
           <button>Send</button>
           <p>{name}</p>
+          <select value={age} onChange={onSelectChange}>
+            <option value="">--Please choose an option--</option>
+            <option>1 - 49</option>
+            <option>50+</option>
+          </select>
         </form>
       </div>
+
+      {/* <div className="containerDiv">
+        <form onSubmit={onFormSubmit2}>
+          
+          <button>Send</button>
+        </form>
+      </div> */}
 
       <Container>
         <Header title="Task List" />
