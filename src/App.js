@@ -46,7 +46,7 @@ function App() {
 
       <div className="containerDiv">
         <form onSubmit={onFormSubmit}>
-          <input
+          <input                             // <input> in react is same as <textarea>
             value={name}
             onChange={({ target }) => setName(target.value)}
           />
