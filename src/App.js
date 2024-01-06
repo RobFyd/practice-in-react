@@ -32,11 +32,13 @@ function App() {
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
 
   const [name, setName] = useState(""); // <form> in react - <input> and <textarea>
-  const [age, setAge] = useState(""); // <form> in react - <select>
+  const [age, setAge] = useState("1 - 20"); // <form> in react - <select>
+  const [adult, setAdult] = useState(false); // <form> in react - <input type="checkbox">
   const onSelectChange = ({ target }) => setAge(target.value); // for <select> in <form>
+  const onAdultChange = ({ target }) => setAdult(target.checked); // for <input type="checkbox"> in <form>
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log(`Name: ${name} and age: ${age} was sent`);
+    console.log(`Name: ${name} and age: ${age} was sent. Adult: ${adult}`);
   };
 
   const onFormSubmit2 = (event) => {
@@ -56,14 +58,21 @@ function App() {
             value={name}
             onChange={({ target }) => setName(target.value)}
           />
-          <button>Send</button>
           <p>{name}</p>
+
           <select value={age} onChange={onSelectChange}>
-            <option value="">--Please choose an option--</option>
             <option>1 - 20</option>
             <option>21 - 50</option>
             <option>51 - 100</option>
           </select>
+
+          <div className="containerDiv">
+            <label>
+              I am adult:
+              <input type="checkbox" checked={adult} onChange={onAdultChange} />
+            </label>
+          </div>
+          <button>Send</button>
         </form>
       </div>
 
