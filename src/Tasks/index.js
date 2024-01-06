@@ -10,7 +10,7 @@ const Tasks = (props) => {
       {props.tasks.map((task) => (
         <li
           className={`list__item ${
-            task.done && props.hideDoneTasks ? "list__item--done" : ""
+            task.done && props.hideDone ? "list__item--done" : ""
           }${task.important ? " list__item--highLight" : ""}`}
           key={task.id}
         >

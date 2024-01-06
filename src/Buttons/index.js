@@ -1,12 +1,12 @@
 import React from "react";
 import "./style.css";
 
-const Buttons = ({ tasks, hideDoneTasks }) => (
+const Buttons = ({ tasks, hideDone }) => (
   <div className="section__buttons">
     {tasks.length > 0 && (
       <>
         <button className="button__hideCompleted">
-          {hideDoneTasks ? "Show" : "Hide"} completed
+          {hideDone ? "Show" : "Hide"} completed
         </button>
 
         <button
@@ -24,7 +24,7 @@ export default Buttons;
 
 ///////////////////////////////////////////// 1st version with if statement
 
-// const Buttons = ({ tasks, hideDoneTasks }) => {
+// const Buttons = ({ tasks, hideDone }) => {
 //     if (tasks.length === 0) {
 //       return null;
 //     }
@@ -32,7 +32,7 @@ export default Buttons;
 //     return (
 //       <div className="section__buttons">
 //         <button className="button__hideCompleted">
-//           {hideDoneTasks ? "Show" : "Hide"} completed
+//           {hideDone ? "Show" : "Hide"} completed
 //         </button>
 
 //         <button

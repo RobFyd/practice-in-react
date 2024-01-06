@@ -26,7 +26,7 @@ const tasks = [
   },
 ];
 
-let hideDoneTasks = false;
+let hideDone = false;
 
 function App() {
   // const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
@@ -79,9 +79,9 @@ function App() {
 
         <Section
           title="Tasks list"
-          body={<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />}
+          body={<Tasks tasks={tasks} hideDone={hideDone} />}
           extraHeaderContent={
-            <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
+            <Buttons tasks={tasks} hideDone={hideDone} />
           }
         />
 
