@@ -11,21 +11,6 @@ import { useState } from "react";
 goodMorning();
 console.log(name);
 
-const tasks = [
-  {
-    id: 1,
-    content: "React start",
-    done: true,
-    important: true,
-  },
-  {
-    id: 2,
-    content: "Eat breakfast",
-    done: false,
-    important: false,
-  },
-];
-
 function App() {
   // const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
 
@@ -40,9 +25,27 @@ function App() {
   // };
 
   const [hideDone, setHideDone] = useState(false);
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      content: "React start",
+      done: true,
+      important: true,
+    },
+    {
+      id: 2,
+      content: "Eat breakfast",
+      done: false,
+      important: false,
+    },
+  ]);
 
   const toggleHideDone = () => {
     setHideDone((hideDone) => !hideDone);
+  };
+
+  const removeTask = (id) => {
+    setTasks(tasks => tasks.filter(task => task.id !== id));
   };
 
   return (
