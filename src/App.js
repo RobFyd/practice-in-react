@@ -26,8 +26,6 @@ const tasks = [
   },
 ];
 
-let hideDone = false;
-
 function App() {
   // const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
 
@@ -40,6 +38,12 @@ function App() {
   //   event.preventDefault();
   //   console.log(`Name: ${name} and age: ${age} was sent. Adult: ${adult}`);
   // };
+
+  const [hideDone, setHideDone] = useState(false);
+
+  const toggleHideDone = () => {
+    setHideDone((hideDone) => !hideDone);
+  };
 
   return (
     <>
@@ -81,7 +85,11 @@ function App() {
           title="Tasks list"
           body={<Tasks tasks={tasks} hideDone={hideDone} />}
           extraHeaderContent={
-            <Buttons tasks={tasks} hideDone={hideDone} />
+            <Buttons
+              tasks={tasks}
+              hideDone={hideDone}
+              toggleHideDone={toggleHideDone}
+            />
           }
         />
 
