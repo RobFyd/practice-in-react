@@ -12,17 +12,17 @@ goodMorning();
 console.log(name);
 
 function App() {
-  // const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
+  const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
 
-  // const [name, setName] = useState(""); // <form> in react - <input> and <textarea>
-  // const [age, setAge] = useState("1 - 20"); // <form> in react - <select>
-  // const [adult, setAdult] = useState(false); // <form> in react - <input type="checkbox">
-  // const onSelectChange = ({ target }) => setAge(target.value); // for <select> in <form>
-  // const onAdultChange = ({ target }) => setAdult(target.checked); // for <input type="checkbox"> in <form>
-  // const onFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(`Name: ${name} and age: ${age} was sent. Adult: ${adult}`);
-  // };
+  const [name, setName] = useState(""); // <form> in react - <input> and <textarea>
+  const [age, setAge] = useState("1 - 20"); // <form> in react - <select>
+  const [adult, setAdult] = useState(false); // <form> in react - <input type="checkbox">
+  const onSelectChange = ({ target }) => setAge(target.value); // for <select> in <form>
+  const onAdultChange = ({ target }) => setAdult(target.checked); // for <input type="checkbox"> in <form>
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(`Name: ${name} and age: ${age} was sent. Adult: ${adult}`);
+  };
 
   const [hideDone, setHideDone] = useState(false);
   const [tasks, setTasks] = useState([
@@ -88,7 +88,7 @@ function App() {
 
   return (
     <>
-      {/* <div className="containerDiv">
+      <div className="containerDiv">
         <p className="containerP">Counter: {count}</p>
         <button onClick={() => setCount((count) => count + 10)}>+10</button>
       </div>
@@ -115,7 +115,7 @@ function App() {
           </div>
           <button>Send</button>
         </form>
-      </div> */}
+      </div>
 
       <Container>
         <Header title="Task List" />
