@@ -74,6 +74,18 @@ function App() {
     setTasks((tasks) => tasks.map((task) => ({ ...task, done: true })));
   };
 
+  const addNewTask = (content) => {
+    setTasks((tasks) => [
+      ...tasks,
+      {
+        content,
+        done: false,
+        important: false,
+        id: tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1,
+      },
+    ]);
+  };
+
   return (
     <>
       {/* <div className="containerDiv">
@@ -108,7 +120,7 @@ function App() {
       <Container>
         <Header title="Task List" />
 
-        <Section title="Add task" form={<Form />} />
+        <Section title="Add task" form={<Form addNewTask={addNewTask} />} />
 
         <Section
           title="Tasks list"
