@@ -1,6 +1,12 @@
 import "./style.css";
 
-const Tasks = ({ tasks, hideDone, removeTask, toggleTaskDone }) => (
+const Tasks = ({
+  tasks,
+  hideDone,
+  removeTask,
+  toggleTaskDone,
+  toggleTaskHighLight,
+}) => (
   <ul className="tasks">
     {tasks.map((task) => (
       <li
@@ -12,6 +18,7 @@ const Tasks = ({ tasks, hideDone, removeTask, toggleTaskDone }) => (
         <button
           className={`task__highLight
             ${task.important ? " task__highLight--active" : ""}`}
+          onClick={() => toggleTaskHighLight(task.id)}
         >
           {task.important ? "💫" : "⭐"}
         </button>

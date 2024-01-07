@@ -59,6 +59,17 @@ function App() {
     );
   };
 
+  const toggleTaskHighLight = (id) => {
+    setTasks((tasks) =>
+      tasks.map((task) => {
+        if (task.id === id) {
+          return { ...task, important: !task.important };
+        }
+        return task;
+      })
+    );
+  };
+
   return (
     <>
       {/* <div className="containerDiv">
@@ -103,6 +114,7 @@ function App() {
               hideDone={hideDone}
               removeTask={removeTask}
               toggleTaskDone={toggleTaskDone}
+              toggleTaskHighLight={toggleTaskHighLight}
             />
           }
           extraHeaderContent={
