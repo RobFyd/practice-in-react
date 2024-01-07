@@ -45,7 +45,7 @@ function App() {
   };
 
   const removeTask = (id) => {
-    setTasks(tasks => tasks.filter(task => task.id !== id));
+    setTasks((tasks) => tasks.filter((task) => task.id !== id));
   };
 
   return (
@@ -86,7 +86,9 @@ function App() {
 
         <Section
           title="Tasks list"
-          body={<Tasks tasks={tasks} hideDone={hideDone} />}
+          body={
+            <Tasks tasks={tasks} hideDone={hideDone} removeTask={removeTask} />
+          }
           extraHeaderContent={
             <Buttons
               tasks={tasks}
