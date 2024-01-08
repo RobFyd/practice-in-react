@@ -33,7 +33,7 @@ const Tasks = ({
         <span
           className={`task__content ${task.done ? "task__content--done" : ""}`}
         >
-          {task.content}
+          {task.id} - {task.content}
         </span>
 
         <button className="task__remove" onClick={() => removeTask(task.id)}>
