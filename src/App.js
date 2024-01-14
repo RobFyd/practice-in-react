@@ -14,10 +14,6 @@ console.log(name);
 function App() {
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
 
-  useEffect(() => {
-    document.title = `Counter: ${count}`;
-  }, [count]);
-
   const [name, setName] = useState(""); // <form> in react - <input> and <textarea>
   const [age, setAge] = useState("1 - 20"); // <form> in react - <select>
   const [adult, setAdult] = useState(false); // <form> in react - <input type="checkbox">
@@ -27,6 +23,10 @@ function App() {
     event.preventDefault();
     console.log(`Name: ${name} and age: ${age} was sent. Adult: ${adult}`);
   };
+
+  useEffect(() => {
+    document.title = `Counter: ${count}, name: ${name}`;
+  }, [count, name]);
 
   const [hideDone, setHideDone] = useState(false);
   const [tasks, setTasks] = useState([
@@ -99,10 +99,13 @@ function App() {
 
       <div className="containerDiv">
         <form onSubmit={onFormSubmit}>
-          <input // <input> in react is same as <textarea>
-            value={name}
-            onChange={({ target }) => setName(target.value)}
-          />
+          <p>
+            Name:{" "}
+            <input // <input> in react is same as <textarea>
+              value={name}
+              onChange={({ target }) => setName(target.value)}
+            />
+          </p>
           <p>{name}</p>
 
           <select value={age} onChange={onSelectChange}>
