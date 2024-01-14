@@ -6,13 +6,17 @@ import Buttons from "./Buttons";
 import Section from "./Section";
 import "./style.css";
 import { hello as goodMorning, name } from "./utilis/hello";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 goodMorning();
 console.log(name);
 
 function App() {
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
+
+  useEffect(() => {
+    document.title = `Counter: ${count}`;
+  }, [count]);
 
   const [name, setName] = useState(""); // <form> in react - <input> and <textarea>
   const [age, setAge] = useState("1 - 20"); // <form> in react - <select>
