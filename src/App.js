@@ -24,9 +24,19 @@ function App() {
     console.log(`Name: ${name} and age: ${age} was sent. Adult: ${adult}`);
   };
 
+  // useEffect(() => {
+  //   document.title = `Counter: ${count}, name: ${name}`;
+  // }, [count, name]);
+
   useEffect(() => {
-    document.title = `Counter: ${count}, name: ${name}`;
-  }, [count, name]);
+    const intervalId = setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   const [hideDone, setHideDone] = useState(false);
   const [tasks, setTasks] = useState([
