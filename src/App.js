@@ -6,13 +6,14 @@ import Buttons from "./Buttons";
 import Section from "./Section";
 import "./style.css";
 import { hello as goodMorning, name } from "./utilis/hello";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 goodMorning();
 console.log(name);
 
 function App() {
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
+  const intervalRef = useRef(null); // hook useRef - return object with property current, which is empty by default, can be used to store any value, can be used in function component and class component
 
   const [name, setName] = useState(""); // <form> in react - <input> and <textarea>
   const [age, setAge] = useState("1 - 20"); // <form> in react - <select>
@@ -29,14 +30,18 @@ function App() {
   // }, [count, name]);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    intervalRef.current = setInterval(() => {    // before intervalRef.current was setInterval
       setCount((prevCount) => prevCount + 1);
     }, 1000);
 
     return () => {
-      clearInterval(intervalId);
+      clearInterval(intervalRef.current);
     };
   }, []);
+
+  const stopCount = () => {
+    clearInterval(intervalRef.current);
+  };
 
   const [hideDone, setHideDone] = useState(false);
   const [tasks, setTasks] = useState(
@@ -110,6 +115,7 @@ function App() {
     <>
       <div className="containerDiv">
         <p className="containerP">Counter: {count}</p>
+        <button onClick={stopCount}>STOP count</button>
         <button onClick={() => setCount((count) => count + 10)}>+10</button>
       </div>
 
