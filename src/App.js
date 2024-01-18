@@ -14,6 +14,9 @@ console.log(name);
 function App() {
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
   const intervalRef = useRef(null); // hook useRef - return object with property current, which is empty by default, can be used to store any value, can be used in function component and class component
+  const inputRef = useRef(null); 
+
+////////////////////////////////////////////////////////////////////////////////////
 
   const [name, setName] = useState(""); // <form> in react - <input> and <textarea>
   const [age, setAge] = useState("1 - 20"); // <form> in react - <select>
@@ -25,12 +28,15 @@ function App() {
     console.log(`Name: ${name} and age: ${age} was sent. Adult: ${adult}`);
   };
 
+////////////////////////////////////////////////////////////////////////////////////
+
   // useEffect(() => {
   //   document.title = `Counter: ${count}, name: ${name}`;
   // }, [count, name]);
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => {    // before intervalRef.current was setInterval
+    intervalRef.current = setInterval(() => {
+      // before intervalRef.current was setInterval
       setCount((prevCount) => prevCount + 1);
     }, 1000);
 
@@ -42,6 +48,12 @@ function App() {
   const stopCount = () => {
     clearInterval(intervalRef.current);
   };
+
+  const focusInput = () => {      
+    inputRef.current.focus();   // focus on input
+  };
+
+////////////////////////////////////////////////////////////////////////////////////
 
   const [hideDone, setHideDone] = useState(false);
   const [tasks, setTasks] = useState(
@@ -144,7 +156,16 @@ function App() {
           </div>
           <button>Send</button>
         </form>
+
+        <>
+          <p>
+            <input ref={inputRef} />
+          </p>
+          <button onClick={focusInput}>set focus</button>
+        </>
       </div>
+
+{/* ////////////////////////////////////////////////////////////////////////// */}
 
       <Container>
         <Header title="Task List" />
