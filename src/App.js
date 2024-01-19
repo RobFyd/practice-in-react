@@ -11,6 +11,12 @@ import { useState, useEffect, useRef } from "react";
 goodMorning();
 console.log(name);
 
+const useDocumentTitle = (counter) => {
+  useEffect(() => {
+    document.title = `Counter: ${counter}`;
+  }, [counter]);
+};
+
 function App() {
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
   const intervalRef = useRef(null); // hook useRef - return object with property current, which is empty by default, can be used to store any value, can be used in function component and class component
@@ -30,7 +36,22 @@ function App() {
 
   ////////////////////////////////////////////////////////////////////////////////////
 
-  const [counter, setCounter] = useState(0); // custom hook
+  const getInitialCounter = () => {
+    const localStorageCounter = localStorage.getItem("counter");
+    if (localStorageCounter === null) {
+      return 0;
+    }
+
+    return JSON.parse(localStorage.getItem("counter"));
+  }
+
+  const [counter, setCounter] = useState(getInitialCounter); // custom hook
+
+  useEffect(() => {
+    localStorage.setItem("counter", JSON.stringify(counter));
+  }, [counter]);
+
+  useDocumentTitle(counter);
 
   ////////////////////////////////////////////////////////////////////////////////////
 
@@ -208,7 +229,10 @@ function App() {
 
       <div className="div_counter">
         <p className="item">{counter}</p>
-        <button className="item" onClick={() => setCounter((counter) => counter + 1)}>
+        <button
+          className="item"
+          onClick={() => setCounter((counter) => counter + 1)}
+        >
           increase counter
         </button>
       </div>
