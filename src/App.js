@@ -17,6 +17,25 @@ const useDocumentTitle = (counter) => {
   }, [counter]);
 };
 
+const useLocalStorageCounter = () => {
+  const getInitialCounter = () => {
+    const localStorageCounter = localStorage.getItem("counter");
+    if (localStorageCounter === null) {
+      return 0;
+    }
+
+    return JSON.parse(localStorage.getItem("counter"));
+  };
+
+  const [counter, setCounter] = useState(getInitialCounter); // custom hook
+
+  useEffect(() => {
+    localStorage.setItem("counter", JSON.stringify(counter));
+  }, [counter]);
+
+  return [counter, setCounter];
+};
+
 function App() {
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
   const intervalRef = useRef(null); // hook useRef - return object with property current, which is empty by default, can be used to store any value, can be used in function component and class component
@@ -36,20 +55,7 @@ function App() {
 
   ////////////////////////////////////////////////////////////////////////////////////
 
-  const getInitialCounter = () => {
-    const localStorageCounter = localStorage.getItem("counter");
-    if (localStorageCounter === null) {
-      return 0;
-    }
-
-    return JSON.parse(localStorage.getItem("counter"));
-  }
-
-  const [counter, setCounter] = useState(getInitialCounter); // custom hook
-
-  useEffect(() => {
-    localStorage.setItem("counter", JSON.stringify(counter));
-  }, [counter]);
+  const [counter, setCounter] = useLocalStorageCounter(); // custom hook
 
   useDocumentTitle(counter);
 
