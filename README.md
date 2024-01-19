@@ -9,6 +9,7 @@ Practical exercises in React.js. In the repository's history, you will find exam
 - useState
 - useEffect
 - useRef
+- custom hooks
 - intervalId
 - custom hooks
 - styled components

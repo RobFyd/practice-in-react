@@ -14,9 +14,9 @@ console.log(name);
 function App() {
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
   const intervalRef = useRef(null); // hook useRef - return object with property current, which is empty by default, can be used to store any value, can be used in function component and class component
-  const inputRef = useRef(null); 
+  const inputRef = useRef(null);
 
-////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
 
   const [name, setName] = useState(""); // <form> in react - <input> and <textarea>
   const [age, setAge] = useState("1 - 20"); // <form> in react - <select>
@@ -28,7 +28,11 @@ function App() {
     console.log(`Name: ${name} and age: ${age} was sent. Adult: ${adult}`);
   };
 
-////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
+
+  const [counter, setCounter] = useState(0); // custom hook
+
+  ////////////////////////////////////////////////////////////////////////////////////
 
   // useEffect(() => {
   //   document.title = `Counter: ${count}, name: ${name}`;
@@ -49,11 +53,11 @@ function App() {
     clearInterval(intervalRef.current);
   };
 
-  const focusInput = () => {      
-    inputRef.current.focus();   // focus on input
+  const focusInput = () => {
+    inputRef.current.focus(); // focus on input
   };
 
-////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
 
   const [hideDone, setHideDone] = useState(false);
   const [tasks, setTasks] = useState(
@@ -165,7 +169,7 @@ function App() {
         </>
       </div>
 
-{/* ////////////////////////////////////////////////////////////////////////// */}
+      {/* ////////////////////////////////////////////////////////////////////////// */}
 
       <Container>
         <Header title="Task List" />
@@ -199,6 +203,15 @@ function App() {
           thumb={<button className="thumbUp" />}
         />
       </Container>
+
+      {/* ////////////////////////////////////////////////////////////////////////// */}
+
+      <div className="div_counter">
+        <p className="item">{counter}</p>
+        <button className="item" onClick={() => setCounter((counter) => counter + 1)}>
+          increase counter
+        </button>
+      </div>
     </>
   );
 }

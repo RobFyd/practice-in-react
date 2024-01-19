@@ -21,3 +21,14 @@
     display: flex;
     justify-content: center;
 }
+
+.div_counter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 10px 100px;
+}
+
+.item:nth-child(1) {
+    order: 2;
+  }
