@@ -17,23 +17,23 @@ const useDocumentTitle = (counter) => {
   }, [counter]);
 };
 
-const useLocalStorageCounter = () => {
-  const getInitialCounter = () => {
-    const localStorageCounter = localStorage.getItem("counter");
+const useLocalStorageState = (keyName, initialValue) => {
+  const getInitialState = () => {
+    const localStorageCounter = localStorage.getItem(keyName);
     if (localStorageCounter === null) {
-      return 0;
+      return initialValue;
     }
 
-    return JSON.parse(localStorage.getItem("counter"));
+    return JSON.parse(localStorage.getItem(keyName));
   };
 
-  const [counter, setCounter] = useState(getInitialCounter); // custom hook
+  const [state, setState] = useState(getInitialState); // custom hook
 
   useEffect(() => {
-    localStorage.setItem("counter", JSON.stringify(counter));
-  }, [counter]);
+    localStorage.setItem(keyName, JSON.stringify(state));
+  }, [state]);
 
-  return [counter, setCounter];
+  return [state, setState];
 };
 
 function App() {
@@ -55,8 +55,8 @@ function App() {
 
   ////////////////////////////////////////////////////////////////////////////////////
 
-  const [counter, setCounter] = useLocalStorageCounter(); // custom hook
-
+  const [counter, setCounter] = useLocalStorageState("counter", 0); // custom hook
+  const [anotherData, setAnotherData] = useLocalStorageState("anotherData", "something else");
   useDocumentTitle(counter);
 
   ////////////////////////////////////////////////////////////////////////////////////
