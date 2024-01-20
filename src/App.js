@@ -7,6 +7,7 @@ import Section from "./Section";
 import "./style.css";
 import { hello as goodMorning, name } from "./utilis/hello";
 import { useState, useEffect, useRef } from "react";
+import { useLocalStorageState } from "./useLocalStorageState";
 
 goodMorning();
 console.log(name);
@@ -15,25 +16,6 @@ const useDocumentTitle = (counter) => {
   useEffect(() => {
     document.title = `Counter: ${counter}`;
   }, [counter]);
-};
-
-const useLocalStorageState = (keyName, initialValue) => {
-  const getInitialState = () => {
-    const localStorageCounter = localStorage.getItem(keyName);
-    if (localStorageCounter === null) {
-      return initialValue;
-    }
-
-    return JSON.parse(localStorage.getItem(keyName));
-  };
-
-  const [state, setState] = useState(getInitialState); // custom hook
-
-  useEffect(() => {
-    localStorage.setItem(keyName, JSON.stringify(state));
-  }, [state]);
-
-  return [state, setState];
 };
 
 function App() {
@@ -56,7 +38,7 @@ function App() {
   ////////////////////////////////////////////////////////////////////////////////////
 
   const [counter, setCounter] = useLocalStorageState("counter", 0); // custom hook
-  const [anotherData, setAnotherData] = useLocalStorageState("anotherData", "something else");
+  const [anotherData, setAnotherData] = useLocalStorageState("anotherData", "something else"); // example of using custom hook
   useDocumentTitle(counter);
 
   ////////////////////////////////////////////////////////////////////////////////////
