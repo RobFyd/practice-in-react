@@ -18,6 +18,32 @@ const useDocumentTitle = (counter) => {
   }, [counter]);
 };
 
+////////////////////////////////////////////////////////////////////////////////////
+
+const useWindowDimensions = () => {
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  const updateDimensions = () => {
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+    };
+  }, []);
+
+  return dimensions;
+};
+
 function App() {
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
   const intervalRef = useRef(null); // hook useRef - return object with property current, which is empty by default, can be used to store any value, can be used in function component and class component
@@ -46,19 +72,7 @@ function App() {
 
   ////////////////////////////////////////////////////////////////////////////////////
 
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    });
-  }, []);
+  const dimensions = useWindowDimensions();
 
   ////////////////////////////////////////////////////////////////////////////////////
 
