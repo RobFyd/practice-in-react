@@ -33,3 +33,11 @@
 .item:nth-child(1) {
     order: 2;
   }
+
+  .div_dimensions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 10px 100px;
+    background-color: antiquewhite;
+  }

@@ -38,8 +38,27 @@ function App() {
   ////////////////////////////////////////////////////////////////////////////////////
 
   const [counter, setCounter] = useLocalStorageState("counter", 0); // custom hook
-  const [anotherData, setAnotherData] = useLocalStorageState("anotherData", "something else"); // example of using custom hook
+  const [anotherData, setAnotherData] = useLocalStorageState(
+    "anotherData",
+    "something else"
+  ); // example of using custom hook
   useDocumentTitle(counter);
+
+  ////////////////////////////////////////////////////////////////////////////////////
+
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    });
+  }, []);
 
   ////////////////////////////////////////////////////////////////////////////////////
 
@@ -139,7 +158,7 @@ function App() {
   return (
     <>
       <div className="containerDiv">
-        <p className="containerP">Counter: {count}</p>
+        <p className="containerP">Count: {count}</p>
         <button onClick={stopCount}>STOP count</button>
         <button onClick={() => setCount((count) => count + 10)}>+10</button>
       </div>
@@ -223,6 +242,11 @@ function App() {
         >
           increase counter
         </button>
+      </div>
+
+      <div className="div_dimensions">
+          Width: {dimensions.width}<br />
+          Height: {dimensions.height}
       </div>
     </>
   );
