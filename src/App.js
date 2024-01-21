@@ -8,18 +8,25 @@ import "./style.css";
 import { hello as goodMorning, name } from "./utilis/hello";
 import { useState, useEffect, useRef } from "react";
 import { useLocalStorageState } from "./useLocalStorageState";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
+///////////////////styled-component//////////////////////////////////////////////////
 
-
-const Button = styled.button` // styled-component
+const Button = styled.button`
   border: 2px solid black;
   padding: 20px;
   margin: 20px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0 0 5px 2px black;
   color: teal;
   cursor: pointer;
+
+  ${({ primary }) =>
+    primary &&
+    css`
+      background-color: crimson;
+      color: wheat;
+    `}
 `;
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -274,13 +281,18 @@ function App() {
       </div>
 
       <div className="div_dimensions">
-          Width: {dimensions.width}<br />
-          Height: {dimensions.height}
+        Width: {dimensions.width}
+        <br />
+        Height: {dimensions.height}
       </div>
 
       {/* ////////////////////////////////////////////////////////////////////////// */}
 
-      <Button>Styled button</Button>
+      <>
+        <Button>Styled button</Button>
+        <Button primary>Main button</Button>
+        <Button>Styled button</Button>
+      </>
     </>
   );
 }
