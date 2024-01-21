@@ -8,6 +8,21 @@ import "./style.css";
 import { hello as goodMorning, name } from "./utilis/hello";
 import { useState, useEffect, useRef } from "react";
 import { useLocalStorageState } from "./useLocalStorageState";
+import styled from "styled-components";
+
+
+
+const Button = styled.button` // styled-component
+  border: 2px solid black;
+  padding: 20px;
+  margin: 20px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 5px 2px black;
+  color: teal;
+  cursor: pointer;
+`;
+
+////////////////////////////////////////////////////////////////////////////////////
 
 goodMorning();
 console.log(name);
@@ -262,6 +277,10 @@ function App() {
           Width: {dimensions.width}<br />
           Height: {dimensions.height}
       </div>
+
+      {/* ////////////////////////////////////////////////////////////////////////// */}
+
+      <Button>Styled button</Button>
     </>
   );
 }
