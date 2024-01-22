@@ -29,6 +29,11 @@ const Button = styled.button`
     `}
 `;
 
+const PrimaryButton = styled(Button)`
+  background-color: teal;
+  color: whitesmoke;
+`;
+
 ////////////////////////////////////////////////////////////////////////////////////
 
 goodMorning();
@@ -292,6 +297,7 @@ function App() {
         <Button>Styled button</Button>
         <Button primary>Main button</Button>
         <Button>Styled button</Button>
+        <PrimaryButton>Primary button</PrimaryButton>
       </>
     </>
   );
