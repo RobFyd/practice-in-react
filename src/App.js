@@ -16,7 +16,7 @@ const Button = styled.button`
   border: 2px solid black;
   padding: 20px;
   margin: 20px;
-  background-color: #ffffff;
+  background: #ffffff;
   box-shadow: 0 0 5px 2px black;
   color: teal;
   cursor: pointer;
@@ -24,14 +24,28 @@ const Button = styled.button`
   ${({ primary }) =>
     primary &&
     css`
-      background-color: crimson;
+      background: crimson;
       color: wheat;
     `}
 `;
 
 const PrimaryButton = styled(Button)`
-  background-color: teal;
+  background: teal;
   color: whitesmoke;
+`;
+
+const Button2 = ({ className }) => (
+  <button className={className}>Button 2</button>
+);
+
+const StyledButton = styled(Button2)`
+  border: 2px solid black;
+  padding: 20px;
+  margin: 20px;
+  background: yellow;
+  box-shadow: 0 0 5px 2px black;
+  color: teal;
+  cursor: pointer;
 `;
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -298,6 +312,11 @@ function App() {
         <Button primary>Main button</Button>
         <Button>Styled button</Button>
         <PrimaryButton>Primary button</PrimaryButton>
+        {/* as="a" - change tag from <button> to <a></a> */}
+        <Button as="a" href="https://google.com">
+          Hyperlink as button
+        </Button>
+        <StyledButton>Styled button</StyledButton>
       </>
     </>
   );
