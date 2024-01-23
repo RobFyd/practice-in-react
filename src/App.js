@@ -8,7 +8,7 @@ import "./style.css";
 import { hello as goodMorning, name } from "./utilis/hello";
 import { useState, useEffect, useRef } from "react";
 import { useLocalStorageState } from "./useLocalStorageState";
-import styled, { css } from "styled-components";
+import styled, { css, ThemeProvider } from "styled-components";
 
 ///////////////////styled-component//////////////////////////////////////////////////
 
@@ -18,13 +18,13 @@ const Button = styled.button`
   margin: 20px;
   background: #ffffff;
   box-shadow: 0 0 5px 2px black;
-  color: teal;
+  color: ${({ theme }) => theme.colors.primaryColor};
   cursor: pointer;
 
   ${({ primary }) =>
     primary &&
     css`
-      background: crimson;
+      background: ${({ theme }) => theme.colors.secondaryColor};
       color: wheat;
 
       &:hover {
@@ -35,7 +35,7 @@ const Button = styled.button`
 `;
 
 const PrimaryButton = styled(Button)`
-  background: teal;
+  background: ${({ theme }) => theme.colors.primaryColor};
   color: whitesmoke;
 
   &:hover {
@@ -63,10 +63,22 @@ const StyledButton = styled(Button2)`
     color: darkblue;
   }
 
-  @media(max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     width: 100%;
   }
 `;
+
+//////
+const theme = {
+  colors: {
+    primaryColor: "darkblue",
+    secondaryColor: "crimson",
+  },
+  breakpoints: {
+    mobile: 767,
+    pc: 1024,
+  },
+};
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -327,7 +339,7 @@ function App() {
 
       {/* ////////////////////////////////////////////////////////////////////////// */}
 
-      <>
+      <ThemeProvider theme={theme}>
         <Button>Styled button</Button>
         <Button primary>Main button</Button>
         <Button>Styled button</Button>
@@ -337,7 +349,7 @@ function App() {
           Hyperlink as button
         </Button>
         <StyledButton>Styled button</StyledButton>
-      </>
+      </ThemeProvider>
     </>
   );
 }
