@@ -1,20 +1,4 @@
-.list__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2px;
-    border: solid 2px lightblue;
-    border-radius: 2px;
-    padding: 5px;
-}
 
-.list__item--done {
-    display: none;
-}
-
-.list__item--highLight {
-    background-color: yellow;
-}
 
 .task__highLight {
     border-radius: 2px;

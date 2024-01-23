@@ -1,5 +1,5 @@
 import "./style.css";
-import { List } from "./styled";
+import { List, Item } from "./styled";
 
 const Tasks = ({
   tasks,
@@ -10,12 +10,11 @@ const Tasks = ({
 }) => (
   <List>
     {tasks.map((task) => (
-      <li
-        className={`list__item ${
-          task.done && hideDone ? "list__item--done" : ""
-        }${task.important ? " list__item--highLight" : ""}`}
-        key={task.id}
-      >
+      <Item
+        done={task.done && hideDone}
+        highLight={task.important}
+        key={task.id}>
+
         <button
           className={`task__highLight
             ${task.important ? " task__highLight--active" : ""}`}
@@ -40,7 +39,7 @@ const Tasks = ({
         <button className="task__remove" onClick={() => removeTask(task.id)}>
           ❌
         </button>
-      </li>
+      </Item>
     ))}
   </List>
 );
