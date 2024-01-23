@@ -1,5 +1,12 @@
 import "./style.css";
-import { List, Item } from "./styled";
+import {
+  List,
+  Item,
+  LightButton,
+  DoneButton,
+  Content,
+  DeleteButton,
+} from "./styled";
 
 const Tasks = ({
   tasks,
@@ -13,15 +20,15 @@ const Tasks = ({
       <Item
         done={task.done && hideDone}
         highLight={task.important}
-        key={task.id}>
-
-        <button
+        key={task.id}
+      >
+        <LightButton
           className={`task__highLight
             ${task.important ? " task__highLight--active" : ""}`}
           onClick={() => toggleTaskHighLight(task.id)}
         >
           {task.important ? "💫" : "⭐"}
-        </button>
+        </LightButton>
 
         <button
           className={`task__done ${task.done ? " task__done--active" : ""}`}
@@ -30,11 +37,9 @@ const Tasks = ({
           {task.done ? "✅" : "✔️"}
         </button>
 
-        <span
-          className={`task__content ${task.done ? "task__content--done" : ""}`}
-        >
+        <Content done={task.done}>
           {task.id} - {task.content}
-        </span>
+        </Content>
 
         <button className="task__remove" onClick={() => removeTask(task.id)}>
           ❌

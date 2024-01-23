@@ -29,3 +29,20 @@ export const Item = styled.li`
       background-color: yellow;
     `}
 `;
+
+export const LightButton = styled.button`
+  border-radius: 2px;
+  border: 1px solid black;
+`;
+
+export const DoneButton = styled.button``;
+
+export const Content = styled.span`
+  ${({ done }) =>
+    done &&
+    css`
+      text-decoration: line-through;
+    `}
+`;
+
+export const DeleteButton = styled.button``;
