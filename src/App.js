@@ -26,14 +26,25 @@ const Button = styled.button`
     css`
       background: crimson;
       color: wheat;
+
+      &:hover {
+        background: papayawhip;
+        color: darkblue;
+      }
     `}
 `;
 
 const PrimaryButton = styled(Button)`
   background: teal;
   color: whitesmoke;
+
+  &:hover {
+    background: darkgoldenrod;
+    color: white;
+  }
 `;
 
+//////
 const Button2 = ({ className }) => (
   <button className={className}>Button 2</button>
 );
@@ -44,8 +55,17 @@ const StyledButton = styled(Button2)`
   margin: 20px;
   background: yellow;
   box-shadow: 0 0 5px 2px black;
-  color: teal;
+  color: black;
   cursor: pointer;
+
+  &:hover {
+    background: yellowgreen;
+    color: darkblue;
+  }
+
+  @media(max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 ////////////////////////////////////////////////////////////////////////////////////
