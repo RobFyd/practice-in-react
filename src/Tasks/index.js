@@ -1,4 +1,3 @@
-import "./style.css";
 import {
   List,
   Item,
@@ -20,18 +19,16 @@ const Tasks = ({
       <Item
         done={task.done && hideDone}
         highLight={task.important}
-        key={task.id}>
-
+        key={task.id}
+      >
         <LightButton
-          className={`task__highLight
-            ${task.important ? " task__highLight--active" : ""}`}
-          onClick={() => toggleTaskHighLight(task.id)}>
+          highLight={task.important}
+          onClick={() => toggleTaskHighLight(task.id)}
+        >
           {task.important ? "💫" : "⭐"}
         </LightButton>
 
-        <DoneButton
-          className={`task__done ${task.done ? " task__done--active" : ""}`}
-          onClick={() => toggleTaskDone(task.id)}>
+        <DoneButton done={task.done} onClick={() => toggleTaskDone(task.id)}>
           {task.done ? "✅" : "✔️"}
         </DoneButton>
 
@@ -41,7 +38,8 @@ const Tasks = ({
 
         <DeleteButton
           className="task__remove"
-          onClick={() => removeTask(task.id)}>
+          onClick={() => removeTask(task.id)}
+        >
           ❌
         </DeleteButton>
       </Item>
