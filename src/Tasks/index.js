@@ -20,30 +20,30 @@ const Tasks = ({
       <Item
         done={task.done && hideDone}
         highLight={task.important}
-        key={task.id}
-      >
+        key={task.id}>
+
         <LightButton
           className={`task__highLight
             ${task.important ? " task__highLight--active" : ""}`}
-          onClick={() => toggleTaskHighLight(task.id)}
-        >
+          onClick={() => toggleTaskHighLight(task.id)}>
           {task.important ? "💫" : "⭐"}
         </LightButton>
 
-        <button
+        <DoneButton
           className={`task__done ${task.done ? " task__done--active" : ""}`}
-          onClick={() => toggleTaskDone(task.id)}
-        >
+          onClick={() => toggleTaskDone(task.id)}>
           {task.done ? "✅" : "✔️"}
-        </button>
+        </DoneButton>
 
         <Content done={task.done}>
           {task.id} - {task.content}
         </Content>
 
-        <button className="task__remove" onClick={() => removeTask(task.id)}>
+        <DeleteButton
+          className="task__remove"
+          onClick={() => removeTask(task.id)}>
           ❌
-        </button>
+        </DeleteButton>
       </Item>
     ))}
   </List>

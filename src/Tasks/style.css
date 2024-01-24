@@ -6,21 +6,10 @@
     background-color: black;
 }
 
-.task__done {
-    border-radius: 2px;
-    border: 1px solid black;
-}
-
 .task__done--active {
     background-color: #00d26a;
     border-radius: 2px;
     border: 1px solid black;
-}
-
-.task__remove {
-    background-color: #ffd0d0;
-    border-radius: 2px;
-    border: 1px solid red;
 }
 
 .task__remove:hover {

@@ -35,7 +35,10 @@ export const LightButton = styled.button`
   border: 1px solid black;
 `;
 
-export const DoneButton = styled.button``;
+export const DoneButton = styled.button`
+  border-radius: 2px;
+  border: 1px solid black;
+`;
 
 export const Content = styled.span`
   ${({ done }) =>
@@ -45,4 +48,8 @@ export const Content = styled.span`
     `}
 `;
 
-export const DeleteButton = styled.button``;
+export const DeleteButton = styled.button`
+  background-color: #ffd0d0;
+  border-radius: 2px;
+  border: 1px solid red;
+`;
