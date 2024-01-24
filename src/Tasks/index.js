@@ -28,7 +28,7 @@ const Tasks = ({
           {task.important ? "💫" : "⭐"}
         </LightButton>
 
-        <DoneButton done={task.done} onClick={() => toggleTaskDone(task.id)}>
+        <DoneButton toggleDone={task.done} onClick={() => toggleTaskDone(task.id)}>
           {task.done ? "✅" : "✔️"}
         </DoneButton>
 

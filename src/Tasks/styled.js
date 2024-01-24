@@ -47,8 +47,8 @@ export const DoneButton = styled.button`
   border-radius: 2px;
   border: 1px solid black;
 
-  ${({ done }) =>
-    done &&
+  ${({ toggleDone }) =>
+    toggleDone &&
     css`
       background-color: #00d26a;
       border-radius: 2px;
