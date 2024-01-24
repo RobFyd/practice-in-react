@@ -33,11 +33,27 @@ export const Item = styled.li`
 export const LightButton = styled.button`
   border-radius: 2px;
   border: 1px solid black;
+
+  ${({ highLight }) =>
+    highLight &&
+    css`
+      border-radius: 2px;
+      border: 1px solid yellow;
+      background-color: black;
+    `}
 `;
 
 export const DoneButton = styled.button`
   border-radius: 2px;
   border: 1px solid black;
+
+  ${({ done }) =>
+    done &&
+    css`
+      background-color: #00d26a;
+      border-radius: 2px;
+      border: 1px solid black;
+    `}
 `;
 
 export const Content = styled.span`
@@ -52,4 +68,16 @@ export const DeleteButton = styled.button`
   background-color: #ffd0d0;
   border-radius: 2px;
   border: 1px solid red;
+
+  &:hover {
+    background-color: palevioletred;
+    border-radius: 2px;
+    border: 1px solid red;
+  }
+
+  &:active {
+    background-color: crimson;
+    border-radius: 2px;
+    border: 1px solid crimson;
+  }
 `;
