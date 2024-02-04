@@ -118,6 +118,7 @@ const useWindowDimensions = () => {
 };
 
 function App() {
+  // state (redux)
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
   const intervalRef = useRef(null); // hook useRef - return object with property current, which is empty by default, can be used to store any value, can be used in function component and class component
   const inputRef = useRef(null);
@@ -135,7 +136,7 @@ function App() {
   };
 
   ////////////////////////////////////////////////////////////////////////////////////
-
+  
   const [counter, setCounter] = useLocalStorageState("counter", 0); // custom hook
   const [anotherData, setAnotherData] = useLocalStorageState(
     "anotherData",
@@ -153,6 +154,7 @@ function App() {
   //   document.title = `Counter: ${count}, name: ${name}`;
   // }, [count, name]);
 
+  // action - code which change state (redux)
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       // before intervalRef.current was setInterval
@@ -242,6 +244,7 @@ function App() {
     ]);
   };
 
+  // view (redux)
   return (
     <>
       <div className="containerDiv">
