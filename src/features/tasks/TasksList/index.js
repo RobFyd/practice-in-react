@@ -7,7 +7,7 @@ import {
   DeleteButton,
 } from "./styled";
 
-const Tasks = ({
+const TasksList = ({
   tasks,
   hideDone,
   removeTask,
@@ -47,4 +47,4 @@ const Tasks = ({
   </List>
 );
 
-export default Tasks;
+export default TasksList;

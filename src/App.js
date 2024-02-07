@@ -1,9 +1,9 @@
-import Container from "./Container";
-import Header from "./Header";
-import Form from "./Form";
-import Tasks from "./Tasks";
-import Buttons from "./Buttons";
-import Section from "./Section";
+import Container from "./common/Container";
+import Header from "./common/Header";
+import Section from "./common/Section";
+import Form from "./features/tasks/Form";
+import TasksList from "./features/tasks/TasksList";
+import Buttons from "./features/tasks/Buttons";
 import "./style.css";
 import { hello as goodMorning, name } from "./utilis/hello";
 import { useState, useEffect, useRef } from "react";
@@ -297,7 +297,7 @@ function App() {
         <Section
           title="Tasks list"
           body={
-            <Tasks
+            <TasksList
               tasks={tasks}
               hideDone={hideDone}
               removeTask={removeTask}
