@@ -1,13 +1,13 @@
-import Container from "./common/Container";
-import Header from "./common/Header";
-import Section from "./common/Section";
-import Form from "./features/tasks/Form";
-import TasksList from "./features/tasks/TasksList";
-import Buttons from "./features/tasks/Buttons";
+import Container from "../../../common/Container";
+import Header from "../../../common/Header";
+import Section from "../../../common/Section";
+import Form from "../Form";
+import TasksList from "../TasksList";
+import Buttons from "../Buttons";
 import "./style.css";
-import { hello as goodMorning, name } from "./utilis/hello";
+import { hello as goodMorning, name } from "../../../utilis/hello";
 import { useState, useEffect, useRef } from "react";
-import { useLocalStorageState } from "./useLocalStorageState";
+import { useLocalStorageState } from "../../../useLocalStorageState";
 import styled, { css, ThemeProvider } from "styled-components";
 
 ///////////////////styled-component//////////////////////////////////////////////////
@@ -117,7 +117,7 @@ const useWindowDimensions = () => {
   return dimensions;
 };
 
-function App() {
+function Tasks() {
   // state (redux)
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
   const intervalRef = useRef(null); // hook useRef - return object with property current, which is empty by default, can be used to store any value, can be used in function component and class component
@@ -357,4 +357,4 @@ function App() {
   );
 }
 
-export default App;
+export default Tasks;
