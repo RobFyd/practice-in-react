@@ -10,6 +10,8 @@ import { useState, useEffect, useRef } from "react";
 import { useLocalStorageState } from "../../../useLocalStorageState";
 import styled, { css, ThemeProvider } from "styled-components";
 import { useTasks } from "../../../useTasks";
+import { useSelector } from "react-redux";
+import { selectTasks } from "./tasksSlice";
 
 function Tasks() {
   // tasks list
@@ -19,8 +21,10 @@ function Tasks() {
     setHideDone((hideDone) => !hideDone);
   };
 
+  const { tasks } = useSelector(selectTasks); // redux (selector)
+
   const {
-    tasks,
+    // tasks,
     removeTask,
     toggleTaskDone,
     toggleTaskHighLight,
