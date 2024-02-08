@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./style.css";
+// import { useDispatch } from "react-redux";
 
 const Form = ({ addNewTask }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
+
+  // const dispatch = useDispatch();
 
   const onFormSubmit = (event) => {
     event.preventDefault();
