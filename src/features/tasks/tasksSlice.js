@@ -16,6 +16,8 @@ export const { addTask2 } = tasksSlice.actions;
 export const selectTasks = (state) => state.tasks; // selector
 export default tasksSlice.reducer;
 
+
+// check the output
 console.log(
   addTask2({
     content: "work one",
