@@ -13,11 +13,24 @@ const tasksSlice = createSlice({
 });
 
 export const { addTask2 } = tasksSlice.actions;
-export const selectTasks = state => state.tasks; // selector
+export const selectTasks = (state) => state.tasks; // selector
 export default tasksSlice.reducer;
 
-console.log(addTask2({
+console.log(
+  addTask2({
     content: "work one",
     done: false,
     id: 1,
-}));
+  })
+);
+
+console.log(
+  tasksSlice.reducer(
+    { tasks: [] },
+    addTask2({
+      content: "work one",
+      done: false,
+      id: 1,
+    })
+  )
+);
