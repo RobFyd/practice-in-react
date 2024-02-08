@@ -6,13 +6,18 @@ const tasksSlice = createSlice({
     tasks: [],
   },
   reducers: {
-    addTask: ({ tasks }, { payload }) => {
+    addTask2: ({ tasks }, { payload }) => {
       tasks.push(payload);
     },
   },
 });
 
-export const { addTask } = tasksSlice.actions;
+export const { addTask2 } = tasksSlice.actions;
 export const selectTasks = state => state.tasks; // selector
 export default tasksSlice.reducer;
 
+console.log(addTask2({
+    content: "work one",
+    done: false,
+    id: 1,
+}));

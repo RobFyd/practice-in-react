@@ -4,6 +4,7 @@ import "./index.css";
 import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
+import { addTask2 } from "./features/tasks/tasksSlice";
 
 const initialState = {
   tasks: [],
