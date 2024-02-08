@@ -9,115 +9,27 @@ import { hello as goodMorning, name } from "../../../utilis/hello";
 import { useState, useEffect, useRef } from "react";
 import { useLocalStorageState } from "../../../useLocalStorageState";
 import styled, { css, ThemeProvider } from "styled-components";
-
-///////////////////styled-component//////////////////////////////////////////////////
-
-const Button = styled.button`
-  border: 2px solid black;
-  padding: 20px;
-  margin: 20px;
-  background: #ffffff;
-  box-shadow: 0 0 5px 2px black;
-  color: ${({ theme }) => theme.colors.primaryColor};
-  cursor: pointer;
-
-  ${({ primary }) =>
-    primary &&
-    css`
-      background: ${({ theme }) => theme.colors.secondaryColor};
-      color: wheat;
-
-      &:hover {
-        background: papayawhip;
-        color: darkblue;
-      }
-    `}
-`;
-
-const PrimaryButton = styled(Button)`
-  background: ${({ theme }) => theme.colors.primaryColor};
-  color: whitesmoke;
-
-  &:hover {
-    background: darkgoldenrod;
-    color: white;
-  }
-`;
-
-//////
-const Button2 = ({ className }) => (
-  <button className={className}>Button 2</button>
-);
-
-const StyledButton = styled(Button2)`
-  border: 2px solid black;
-  padding: 20px;
-  margin: 20px;
-  background: yellow;
-  box-shadow: 0 0 5px 2px black;
-  color: black;
-  cursor: pointer;
-
-  &:hover {
-    background: yellowgreen;
-    color: darkblue;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
-    width: 100%;
-  }
-`;
-
-//////
-const theme = {
-  colors: {
-    primaryColor: "darkblue",
-    secondaryColor: "crimson",
-  },
-  breakpoints: {
-    mobile: 767,
-    pc: 1024,
-  },
-};
-
-////////////////////////////////////////////////////////////////////////////////////
-
-goodMorning();
-console.log(name);
-
-const useDocumentTitle = (counter) => {
-  useEffect(() => {
-    document.title = `Counter: ${counter}`;
-  }, [counter]);
-};
-
-////////////////////////////////////////////////////////////////////////////////////
-
-const useWindowDimensions = () => {
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  const updateDimensions = () => {
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", updateDimensions);
-
-    return () => {
-      window.removeEventListener("resize", updateDimensions);
-    };
-  }, []);
-
-  return dimensions;
-};
+import { useTasks } from "../../../useTasks";
 
 function Tasks() {
+  // tasks list
+  const [hideDone, setHideDone] = useState(false);
+
+  const toggleHideDone = () => {
+    setHideDone((hideDone) => !hideDone);
+  };
+
+  const {
+    tasks,
+    removeTask,
+    toggleTaskDone,
+    toggleTaskHighLight,
+    setAllDone,
+    addNewTask,
+  } = useTasks();
+  // tasks list end
+  ////////////////////////////////////////////////////////////////////////////////////
+
   // state (redux)
   const [count, setCount] = useState(0); // hook useState  - return array with two elements: value and function to change value, must be in function component, one argument is initial value
   const intervalRef = useRef(null); // hook useRef - return object with property current, which is empty by default, can be used to store any value, can be used in function component and class component
@@ -136,7 +48,7 @@ function Tasks() {
   };
 
   ////////////////////////////////////////////////////////////////////////////////////
-  
+
   const [counter, setCounter] = useLocalStorageState("counter", 0); // custom hook
   const [anotherData, setAnotherData] = useLocalStorageState(
     "anotherData",
@@ -175,74 +87,6 @@ function Tasks() {
   };
 
   ////////////////////////////////////////////////////////////////////////////////////
-
-  const [hideDone, setHideDone] = useState(false);
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || [
-      {
-        id: 1,
-        content: "React start",
-        done: true,
-        important: true,
-      },
-      {
-        id: 2,
-        content: "Eat breakfast",
-        done: false,
-        important: false,
-      },
-    ]
-  );
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  const toggleHideDone = () => {
-    setHideDone((hideDone) => !hideDone);
-  };
-
-  const removeTask = (id) => {
-    setTasks((tasks) => tasks.filter((task) => task.id !== id));
-  };
-
-  const toggleTaskDone = (id) => {
-    setTasks((tasks) =>
-      tasks.map((task) => {
-        if (task.id === id) {
-          return { ...task, done: !task.done };
-        }
-        return task;
-      })
-    );
-  };
-
-  const toggleTaskHighLight = (id) => {
-    setTasks((tasks) =>
-      tasks.map((task) => {
-        if (task.id === id) {
-          return { ...task, important: !task.important };
-        }
-        return task;
-      })
-    );
-  };
-
-  const setAllDone = () => {
-    setTasks((tasks) => tasks.map((task) => ({ ...task, done: true })));
-  };
-
-  const addNewTask = (content) => {
-    setTasks((tasks) => [
-      ...tasks,
-      {
-        content,
-        done: false,
-        important: false,
-        id: tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1,
-      },
-    ]);
-  };
 
   // view (redux)
   return (
@@ -358,3 +202,110 @@ function Tasks() {
 }
 
 export default Tasks;
+
+///////////////////styled-component//////////////////////////////////////////////////
+
+const Button = styled.button`
+  border: 2px solid black;
+  padding: 20px;
+  margin: 20px;
+  background: #ffffff;
+  box-shadow: 0 0 5px 2px black;
+  color: ${({ theme }) => theme.colors.primaryColor};
+  cursor: pointer;
+
+  ${({ primary }) =>
+    primary &&
+    css`
+      background: ${({ theme }) => theme.colors.secondaryColor};
+      color: wheat;
+
+      &:hover {
+        background: papayawhip;
+        color: darkblue;
+      }
+    `}
+`;
+
+const PrimaryButton = styled(Button)`
+  background: ${({ theme }) => theme.colors.primaryColor};
+  color: whitesmoke;
+
+  &:hover {
+    background: darkgoldenrod;
+    color: white;
+  }
+`;
+
+//////
+const Button2 = ({ className }) => (
+  <button className={className}>Button 2</button>
+);
+
+const StyledButton = styled(Button2)`
+  border: 2px solid black;
+  padding: 20px;
+  margin: 20px;
+  background: yellow;
+  box-shadow: 0 0 5px 2px black;
+  color: black;
+  cursor: pointer;
+
+  &:hover {
+    background: yellowgreen;
+    color: darkblue;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    width: 100%;
+  }
+`;
+
+//////
+const theme = {
+  colors: {
+    primaryColor: "darkblue",
+    secondaryColor: "crimson",
+  },
+  breakpoints: {
+    mobile: 767,
+    pc: 1024,
+  },
+};
+
+////////////////////////////////////////////////////////////////////////////////////
+
+goodMorning();
+console.log(name);
+
+const useDocumentTitle = (counter) => {
+  useEffect(() => {
+    document.title = `Counter: ${counter}`;
+  }, [counter]);
+};
+
+////////////////////////////////////////////////////////////////////////////////////
+
+const useWindowDimensions = () => {
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  const updateDimensions = () => {
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+    };
+  }, []);
+
+  return dimensions;
+};
