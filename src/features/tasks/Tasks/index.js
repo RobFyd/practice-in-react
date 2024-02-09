@@ -14,12 +14,7 @@ import { useSelector } from "react-redux";
 import { selectTasks } from "./tasksSlice";
 
 function Tasks() {
-  // tasks list
-  const [hideDone, setHideDone] = useState(false);
-
-  const toggleHideDone = () => {
-    setHideDone((hideDone) => !hideDone);
-  };
+  // tasks list start
 
   const { tasks } = useSelector(selectTasks); // redux (selector)
 
@@ -147,7 +142,6 @@ function Tasks() {
           body={
             <TasksList
               tasks={tasks}
-              hideDone={hideDone}
               removeTask={removeTask}
               toggleTaskDone={toggleTaskDone}
               toggleTaskHighLight={toggleTaskHighLight}
@@ -156,8 +150,6 @@ function Tasks() {
           extraHeaderContent={
             <Buttons
               tasks={tasks}
-              hideDone={hideDone}
-              toggleHideDone={toggleHideDone}
               setAllDone={setAllDone}
             />
           }

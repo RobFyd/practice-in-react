@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { useSelector, useDispatch } from "react-redux";
 
 const Buttons = ({ tasks, hideDone, toggleHideDone, setAllDone }) => (
   <div className="section__buttons">
