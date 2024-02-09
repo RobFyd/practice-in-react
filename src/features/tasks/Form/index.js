@@ -1,16 +1,25 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./style.css";
 // import { useDispatch } from "react-redux";
 
 const Form = ({ addNewTask }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
+  const inputRef = useRef(null);
 
   // const dispatch = useDispatch();
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    addNewTask(newTaskContent.trim());
+    
+    const trimmedNewTaskContent = newTaskContent.trim();
+
+    if (!trimmedNewTaskContent) {
+      return;
+    }
+
+    addNewTask(trimmedNewTaskContent);
     setNewTaskContent("");
+    inputRef.current.focus();
   };
 
   return (
@@ -20,7 +29,7 @@ const Form = ({ addNewTask }) => {
         onChange={({ target }) => setNewTaskContent(target.value)}
         className="form__field"
         placeholder="what to do?"
-        autoFocus
+        ref={inputRef}
       />
       <button className="form__button">Add new task</button>
     </form>
