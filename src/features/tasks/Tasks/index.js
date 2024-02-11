@@ -141,7 +141,7 @@ function Tasks() {
           title="Tasks list"
           body={
             <TasksList
-              tasks={tasks}
+              // tasks={tasks}
               removeTask={removeTask}
               toggleTaskDone={toggleTaskDone}
               toggleTaskHighLight={toggleTaskHighLight}
@@ -149,7 +149,7 @@ function Tasks() {
           }
           extraHeaderContent={
             <Buttons
-              tasks={tasks}
+              // tasks={tasks}
               setAllDone={setAllDone}
             />
           }
