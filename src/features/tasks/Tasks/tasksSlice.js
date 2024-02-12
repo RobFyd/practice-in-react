@@ -23,6 +23,19 @@ const tasksSlice = createSlice({
       const index = tasks.findIndex(({ id }) => id === taskId);
       tasks[index].done = !tasks[index].done;
     },
+    // removeTask: ({ tasks }, { payload: taskId }) => {
+    //   const index = tasks.findIndex(({ id }) => id === taskId);
+    //   tasks.splice(index, 1);
+    // },
+    // setAllDone: ({ tasks }) => {
+    //   for (const task of tasks) {
+    //     task.done = true;
+    //   }
+    // },
+    // toggleTaskHighLight: ({ tasks }, { payload: taskId }) => {
+    //   const index = tasks.findIndex(({ id }) => id === taskId);
+    //   tasks[index].important = !tasks[index].important;
+    // },
   },
 });
 
