@@ -10,22 +10,11 @@ import { useState, useEffect, useRef } from "react";
 import { useLocalStorageState } from "../../../useLocalStorageState";
 import styled, { css, ThemeProvider } from "styled-components";
 import { useTasks } from "../../../useTasks";
-import { useSelector } from "react-redux";
-import { selectTasks } from "./tasksSlice";
 
 function Tasks() {
   // tasks list start
 
-  const { tasks } = useSelector(selectTasks); // redux (selector)
-
-  const {
-    // tasks,
-    removeTask,
-    toggleTaskDone,
-    toggleTaskHighLight,
-    setAllDone,
-    addNewTask,
-  } = useTasks();
+  const { toggleTaskHighLight } = useTasks();
   // tasks list end
   ////////////////////////////////////////////////////////////////////////////////////
 
@@ -135,24 +124,12 @@ function Tasks() {
       <Container>
         <Header title="Task List" />
 
-        <Section title="Add task" form={<Form addNewTask={addNewTask} />} />
+        <Section title="Add task" form={<Form />} />
 
         <Section
           title="Tasks list"
-          body={
-            <TasksList
-              // tasks={tasks}
-              removeTask={removeTask}
-              toggleTaskDone={toggleTaskDone}
-              toggleTaskHighLight={toggleTaskHighLight}
-            />
-          }
-          extraHeaderContent={
-            <Buttons
-              // tasks={tasks}
-              setAllDone={setAllDone}
-            />
-          }
+          body={<TasksList toggleTaskHighLight={toggleTaskHighLight} />}
+          extraHeaderContent={<Buttons />}
         />
 
         <Section
