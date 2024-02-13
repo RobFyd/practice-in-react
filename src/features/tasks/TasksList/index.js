@@ -1,4 +1,4 @@
-import { selectTasksState, toggleTaskDone } from "../Tasks/tasksSlice";
+import { selectTasks, selectHideDone, toggleTaskDone, removeTask, toggleTaskHighLight } from "../Tasks/tasksSlice";
 import {
   List,
   Item,
@@ -10,8 +10,10 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 
 
-const TasksList = ({ removeTask, toggleTaskHighLight }) => {
-  const { tasks, hideDone } = useSelector(selectTasksState);
+const TasksList = () => {
+  const tasks = useSelector(selectTasks);
+  const hideDone = useSelector(selectHideDone);
+
   const dispatch = useDispatch();
 
   return (
@@ -24,7 +26,7 @@ const TasksList = ({ removeTask, toggleTaskHighLight }) => {
         >
           <LightButton
             highLight={task.important}
-            onClick={() => toggleTaskHighLight(task.id)}
+            onClick={() => dispatch(toggleTaskHighLight(task.id))}
           >
             {task.important ? "💫" : "⭐"}
           </LightButton>
@@ -42,7 +44,7 @@ const TasksList = ({ removeTask, toggleTaskHighLight }) => {
 
           <DeleteButton
             className="task__remove"
-            onClick={() => removeTask(task.id)}
+            onClick={() => dispatch(removeTask(task.id))}
           >
             ❌
           </DeleteButton>

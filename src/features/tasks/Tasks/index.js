@@ -13,8 +13,6 @@ import { useTasks } from "../../../useTasks";
 
 function Tasks() {
   // tasks list start
-
-  const { toggleTaskHighLight } = useTasks();
   // tasks list end
   ////////////////////////////////////////////////////////////////////////////////////
 
@@ -119,7 +117,7 @@ function Tasks() {
         </>
       </div>
 
-      {/* ////////////////////////////////////////////////////////////////////////// */}
+      {/* ////////tasks list main return ////////////////////////////////////////////////////////////////// */}
 
       <Container>
         <Header title="Task List" />
@@ -128,7 +126,7 @@ function Tasks() {
 
         <Section
           title="Tasks list"
-          body={<TasksList toggleTaskHighLight={toggleTaskHighLight} />}
+          body={<TasksList />}
           extraHeaderContent={<Buttons />}
         />
 
