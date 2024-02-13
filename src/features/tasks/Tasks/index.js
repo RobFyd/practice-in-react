@@ -9,7 +9,6 @@ import { hello as goodMorning, name } from "../../../utilis/hello";
 import { useState, useEffect, useRef } from "react";
 import { useLocalStorageState } from "../../../useLocalStorageState";
 import styled, { css, ThemeProvider } from "styled-components";
-import { useTasks } from "../../../useTasks";
 
 function Tasks() {
   // tasks list start
@@ -36,10 +35,10 @@ function Tasks() {
   ////////////////////////////////////////////////////////////////////////////////////
 
   const [counter, setCounter] = useLocalStorageState("counter", 0); // custom hook
-  const [anotherData, setAnotherData] = useLocalStorageState(
-    "anotherData",
-    "something else"
-  ); // example of using custom hook
+  // const [anotherData, setAnotherData] = useLocalStorageState(
+  //   "anotherData",
+  //   "something else"
+  // ); // example of using custom hook
   useDocumentTitle(counter);
 
   ////////////////////////////////////////////////////////////////////////////////////
