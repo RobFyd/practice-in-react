@@ -23,30 +23,30 @@ const tasksSlice = createSlice({
       const index = tasks.findIndex(({ id }) => id === taskId);
       tasks[index].done = !tasks[index].done;
     },
-    // removeTask: ({ tasks }, { payload: taskId }) => {
-    //   const index = tasks.findIndex(({ id }) => id === taskId);
-    //   tasks.splice(index, 1);
-    // },
-    // setAllDone: ({ tasks }) => {
-    //   for (const task of tasks) {
-    //     task.done = true;
-    //   }
-    // },
-    // toggleTaskHighLight: ({ tasks }, { payload: taskId }) => {
-    //   const index = tasks.findIndex(({ id }) => id === taskId);
-    //   tasks[index].important = !tasks[index].important;
-    // },
+    removeTask: ({ tasks }, { payload: taskId }) => {
+      const index = tasks.findIndex(({ id }) => id === taskId);
+      tasks.splice(index, 1);
+    },
+    setAllDone: ({ tasks }) => {
+      for (const task of tasks) {
+        task.done = true;
+      }
+    },
+    toggleTaskHighLight: ({ tasks }, { payload: taskId }) => {
+      const index = tasks.findIndex(({ id }) => id === taskId);
+      tasks[index].important = !tasks[index].important;
+    },
   },
 });
 
-export const { addTask, toggleHideDone, toggleTaskDone } = tasksSlice.actions;
-// export const { removeTask, setAllDone, toggleTaskHighLight } = tasksSlice.actions;
+export const { addTask, toggleHideDone, toggleTaskDone, removeTask, setAllDone, toggleTaskHighLight } = tasksSlice.actions;
+
 export const selectTasksState = (state) => state.tasks; // selector
 
-// export const selectTasks = (state) => selectTasksState(state).tasks;
-// export const selectHideDone = (state) => selectTasksState(state).hideDone;
-// export const selectAreTasksEmpty = (state) => selectTasks(state).length === 0;
-// export const selectIsEveryTaskDone = (state) => selectTasks(state).every(({ done }) => done);
+export const selectTasks = (state) => selectTasksState(state).tasks;
+export const selectHideDone = (state) => selectTasksState(state).hideDone;
+export const selectAreTasksEmpty = (state) => selectTasks(state).length === 0;
+export const selectIsEveryTaskDone = (state) => selectTasks(state).every(({ done }) => done);
 
 export default tasksSlice.reducer;
 
