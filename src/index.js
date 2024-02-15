@@ -63,5 +63,3 @@ store2.dispatch(addTask2("work two"));
 console.log(selectTasks(store2.getState()));
   // end of the previous example
 
-
-
