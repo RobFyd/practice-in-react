@@ -1,16 +1,17 @@
-import { takeEvery } from 'redux-saga/effects';
-import { fetchExampleTasks } from './tasksSlice';
+import { takeEvery, call, put } from 'redux-saga/effects';
+import { fetchExampleTasks, setTasks } from './tasksSlice';
 import { getExampleTasks } from './getExampleTasks';
 
 function* fetchExampleTasksHandler() {
     try {
-        getExampleTasks();
+        const exampleTasks = yield call (getExampleTasks);
+        yield put(setTasks(exampleTasks));
     } catch (error) {
-        console.error("Something went wrong", error);
+        yield call(alert, "Failed to fetch example tasks");
     }
     
 }
 
-function* watchFetchExampleTasks() {
+export function* watchFetchExampleTasks() {
     yield takeEvery(fetchExampleTasks.type, fetchExampleTasksHandler);
 }
