@@ -15,3 +15,13 @@ Practical exercises in React.js. In the repository's history, you will find exam
 - styled components
 - git hub branches
 - git merge and conflict branches
+- npm
+- try-catch
+- JSON format
+- fetch, axios
+- promise, async/await
+- redux
+- local storage
+- generators 
+- redux-saga
+
