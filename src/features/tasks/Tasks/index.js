@@ -128,12 +128,6 @@ function Tasks() {
           body={<TasksList />}
           extraHeaderContent={<Buttons />}
         />
-
-        <Section
-          title="Stats"
-          stats={<div className="stats"></div>}
-          thumb={<button className="thumbUp" />}
-        />
       </Container>
 
       {/* ////////////////////////////////////////////////////////////////////////// */}
