@@ -16,20 +16,18 @@ export const App = () => (
     <nav>
       <ul>
         <li>
-          <Link to="/tasks">Tasks</Link>
+          <NavLink activeClassName="active" to="/tasks">
+            Tasks
+          </NavLink>
         </li>
         <li>
           <Link to="/stats">Stats</Link>
         </li>
         <li>
-          <NavLink activeClassName="active" to="/counter">
-            Counter
-          </NavLink>
+          <Link to="/counter">Counter</Link>
         </li>
         <li>
-          <NavLink activeClassName="active" to="/buttons">
-            Buttons
-          </NavLink>
+          <Link to="/buttons">Buttons</Link>
         </li>
       </ul>
       <Switch>
