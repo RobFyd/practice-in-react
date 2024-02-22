@@ -1,4 +1,4 @@
-import { selectTasks, selectHideDone, toggleTaskDone, removeTask, toggleTaskHighLight } from "../Tasks/tasksSlice";
+import { selectTasks, selectHideDone, toggleTaskDone, removeTask, toggleTaskHighLight } from "../TasksPage/tasksSlice";
 import {
   List,
   Item,

@@ -6,7 +6,7 @@ import {
   NavLink,
   Redirect,
 } from "react-router-dom";
-import Tasks from "./features/tasks/Tasks";
+import Tasks from "./features/tasks/TasksPage";
 import Stats from "./features/stats/Stats";
 import Counter from "./features/counter/Counter";
 import Buttons from "./features/buttons/Buttons";

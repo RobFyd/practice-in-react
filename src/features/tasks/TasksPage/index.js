@@ -10,7 +10,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocalStorageState } from "../../../useLocalStorageState";
 import styled, { css, ThemeProvider } from "styled-components";
 
-function Tasks() {
+function TasksPage() {
   // tasks list start
   // tasks list end
   ////////////////////////////////////////////////////////////////////////////////////
@@ -165,7 +165,7 @@ function Tasks() {
   );
 }
 
-export default Tasks;
+export default TasksPage;
 
 ///////////////////styled-component//////////////////////////////////////////////////
 
