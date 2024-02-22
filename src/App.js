@@ -1,4 +1,11 @@
-import { HashRouter, Route, Switch, Link, NavLink } from "react-router-dom";
+import {
+  HashRouter,
+  Route,
+  Switch,
+  Link,
+  NavLink,
+  Redirect,
+} from "react-router-dom";
 import Tasks from "./features/tasks/Tasks";
 import Stats from "./features/stats/Stats";
 import Counter from "./features/counter/Counter";
@@ -38,6 +45,9 @@ export const App = () => (
         <Route path="/buttons">
           <Buttons />
         </Route>
+        <Route path="/1">
+          <Redirect to="/tasks" />
+        </Route>
         <Route path="/">Main page (or 404 if no route matches)</Route>
       </Switch>
     </nav>
@@ -45,3 +55,4 @@ export const App = () => (
 );
 
 // exact prop can be used to match the exact path
+// <Redirect> component can be used to redirect to another route
