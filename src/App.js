@@ -6,10 +6,11 @@ import {
   NavLink,
   Redirect,
 } from "react-router-dom";
-import Tasks from "./features/tasks/TasksPage";
 import Stats from "./features/stats/Stats";
 import Counter from "./features/counter/Counter";
 import Buttons from "./features/buttons/Buttons";
+import TasksPage from "./features/tasks/TasksPage";
+import TaskPage from "./features/tasks/TaskPage";
 
 export const App = () => (
   <HashRouter>
@@ -31,8 +32,11 @@ export const App = () => (
         </li>
       </ul>
       <Switch>
+        <Route path="/tasks/:id">
+          <TaskPage />
+        </Route>
         <Route path="/tasks">
-          <Tasks />
+          <TasksPage />
         </Route>
         <Route path="/stats">
           <Stats />
