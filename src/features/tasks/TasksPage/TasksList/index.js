@@ -8,6 +8,7 @@ import {
   DeleteButton,
 } from "./styled";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 const TasksList = () => {
@@ -39,7 +40,7 @@ const TasksList = () => {
           </DoneButton>
 
           <Content done={task.done}>
-            {task.id} - {task.content}
+            <Link to={`/tasks/${task.id}`}>{task.id} - {task.content}</Link>
           </Content>
 
           <DeleteButton
