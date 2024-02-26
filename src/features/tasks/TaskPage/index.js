@@ -1,15 +1,18 @@
 import Container from "../../../common/Container";
 import Header from "../../../common/Header";
 import Section from "../../../common/Section";
+import { useParams } from "react-router-dom";
 
-function TasksPage() {
+function TaskPage() {
+  const { id } = useParams();
+
   return (
     <Container>
       <Header title="Task Details" />
 
-      <Section title={""} />
+      <Section title={id} body={<>sialala</>} />
     </Container>
   );
 }
 
-export default TasksPage;
+export default TaskPage;
