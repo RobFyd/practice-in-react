@@ -1,6 +1,14 @@
+import Input from "../../Input";
+import { useLocation } from "react-router-dom";
 
 export default () => {
+    const location = useLocation();
+    const query = new URLSearchParams(location.search).get("query");
+
     return (
-        <>yoyo</>
+        <Input 
+            placeholder="search tasks"
+            // value={}
+        />
     )
 };
