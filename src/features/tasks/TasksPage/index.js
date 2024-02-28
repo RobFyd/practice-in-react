@@ -4,6 +4,7 @@ import Section from "../../../common/Section";
 import Form from "./Form";
 import TasksList from "./TasksList";
 import Buttons from "./Buttons";
+import Search from "./Search";
 import "./style.css";
 import { hello as goodMorning, name } from "../../../utilis/hello";
 import { useState, useEffect, useRef } from "react";
@@ -123,6 +124,8 @@ function TasksPage() {
         <Header title="Task List" />
 
         <Section title="Add task" form={<Form />} />
+
+        <Section title="Searcher" form={<Search />} />
 
         <Section
           title="Tasks list"
