@@ -13,7 +13,14 @@ function TaskPage() {
     <Container>
       <Header title="Task Details" />
 
-      <Section title={id} body={<>sialala</>} />
+      <Section
+        title={task ? task.content : "Task not found 🤨"}
+        body={
+          <>
+            <strong>Done:</strong> {task.done ? "YES" : "NO"}
+          </>
+        }
+      />
     </Container>
   );
 }
