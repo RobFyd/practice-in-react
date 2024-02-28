@@ -9,8 +9,12 @@ import { hello as goodMorning, name } from "../../../utilis/hello";
 import { useState, useEffect, useRef } from "react";
 import { useLocalStorageState } from "../../../useLocalStorageState";
 import styled, { css, ThemeProvider } from "styled-components";
+import { useLocation } from "react-router-dom";
 
 function TasksPage() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  searchParams.get("search");
   // tasks list start
   // tasks list end
   ////////////////////////////////////////////////////////////////////////////////////
