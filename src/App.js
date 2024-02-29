@@ -11,6 +11,7 @@ import Counter from "./features/counter/Counter";
 import Buttons from "./features/buttons/Buttons";
 import TasksPage from "./features/tasks/TasksPage";
 import TaskPage from "./features/tasks/TaskPage";
+import { StyledNavLink } from "./styled";
 
 export const App = () => (
   <HashRouter>
@@ -22,7 +23,7 @@ export const App = () => (
           </NavLink>
         </li>
         <li>
-          <Link to="/stats">Stats</Link>
+          <StyledNavLink to="/stats">Stats</StyledNavLink>
         </li>
         <li>
           <Link to="/counter">Counter</Link>
