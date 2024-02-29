@@ -65,93 +65,11 @@ function TasksPage() {
       </div>
 
       {/* ////////////////////////////////////////////////////////////////////////// */}
-
-      <ThemeProvider theme={theme}>
-        <Button>Styled button</Button>
-        <Button primary>Main button</Button>
-        <Button>Styled button</Button>
-        <PrimaryButton>Primary button</PrimaryButton>
-        {/* as="a" - change tag from <button> to <a></a> */}
-        <Button as="a" href="https://google.com">
-          Hyperlink as button
-        </Button>
-        <StyledButton>Styled button</StyledButton>
-      </ThemeProvider>
     </>
   );
 }
 
 export default TasksPage;
-
-///////////////////styled-component//////////////////////////////////////////////////
-
-const Button = styled.button`
-  border: 2px solid black;
-  padding: 20px;
-  margin: 20px;
-  background: #ffffff;
-  box-shadow: 0 0 5px 2px black;
-  color: ${({ theme }) => theme.colors.primaryColor};
-  cursor: pointer;
-
-  ${({ primary }) =>
-    primary &&
-    css`
-      background: ${({ theme }) => theme.colors.secondaryColor};
-      color: wheat;
-
-      &:hover {
-        background: papayawhip;
-        color: darkblue;
-      }
-    `}
-`;
-
-const PrimaryButton = styled(Button)`
-  background: ${({ theme }) => theme.colors.primaryColor};
-  color: whitesmoke;
-
-  &:hover {
-    background: darkgoldenrod;
-    color: white;
-  }
-`;
-
-//////
-const Button2 = ({ className }) => (
-  <button className={className}>Button 2</button>
-);
-
-const StyledButton = styled(Button2)`
-  border: 2px solid black;
-  padding: 20px;
-  margin: 20px;
-  background: yellow;
-  box-shadow: 0 0 5px 2px black;
-  color: black;
-  cursor: pointer;
-
-  &:hover {
-    background: yellowgreen;
-    color: darkblue;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
-    width: 100%;
-  }
-`;
-
-//////
-const theme = {
-  colors: {
-    primaryColor: "darkblue",
-    secondaryColor: "crimson",
-  },
-  breakpoints: {
-    mobile: 767,
-    pc: 1024,
-  },
-};
 
 ////////////////////////////////////////////////////////////////////////////////////
 
