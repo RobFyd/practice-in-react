@@ -9,7 +9,6 @@ import "./style.css";
 import { hello as goodMorning, name } from "../../../utilis/hello";
 import { useState, useEffect } from "react";
 import { useLocalStorageState } from "../../../useLocalStorageState";
-import styled, { css, ThemeProvider } from "styled-components";
 
 function TasksPage() {
   ////////////////////////////////////////////////////////////////////////////////////
