@@ -42,15 +42,27 @@
       quo nisi iusto corrupti, sequi harum hic, quia cumque iste tempora quam
       delectus ab molestias voluptatum doloribus itaque similique!
     </p>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
     <script>
-        document.querySelectorAll(".link").forEach((link) => {
-            const anchorElement = document.createElement("a");
-            anchorElement.textContent = "Check the course website!";
-            anchorElement.href = "https://zrozumreact.pl";
-            anchorElement.target = "_blank";
-            anchorElement.rel = "noopener noreferr";
-            link.append(anchorElement);
-        })
+      document.querySelectorAll(".link").forEach((link) => {
+        const anchorElement = React.createElement(
+          "a",
+          {
+            href: "https://zrozumreact.pl",
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+          "Check the course website!"
+        );
+        ReactDOM.createRoot(link).render(anchorElement);
+      });
     </script>
   </body>
 </html>
