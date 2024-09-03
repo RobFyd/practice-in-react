@@ -31,6 +31,9 @@ export const App = () => (
         <li>
           <Link to="/buttons">Buttons</Link>
         </li>
+        <li>
+          <Link to="/helloReact">Hello React</Link>
+        </li>
       </ul>
       <Switch>
         <Route path="/tasks/:id">
@@ -47,6 +50,9 @@ export const App = () => (
         </Route>
         <Route path="/buttons">
           <Buttons />
+        </Route>
+        <Route path="/helloReact">
+          <HelloReact />
         </Route>
         <Route path="/1">
           <Redirect to="/tasks" />
