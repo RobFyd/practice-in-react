@@ -12,6 +12,7 @@ import Buttons from "./features/buttons/Buttons";
 import TasksPage from "./features/tasks/TasksPage";
 import TaskPage from "./features/tasks/TaskPage";
 import { StyledNavLink } from "./styled";
+import HelloReact from "./features/hello_react/HelloReact";
 
 export const App = () => (
   <HashRouter>
