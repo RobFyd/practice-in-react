@@ -6,41 +6,51 @@
     <title>Document</title>
   </head>
   <body>
-    <a href="https://zrozumiecreact.pl">zrozumiecreact.pl</a>
+    <div class="link"></div>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda qui
       quo nisi iusto corrupti, sequi harum hic, quia cumque iste tempora quam
       delectus ab molestias voluptatum doloribus itaque similique!
     </p>
-    <a href="https://zrozumiecreact.pl">zrozumiecreact.pl</a>
+    <div class="link"></div>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda qui
       quo nisi iusto corrupti, sequi harum hic, quia cumque iste tempora quam
       delectus ab molestias voluptatum doloribus itaque similique!
     </p>
-    <a href="https://zrozumiecreact.pl">zrozumiecreact.pl</a>
+    <div class="link"></div>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda qui
       quo nisi iusto corrupti, sequi harum hic, quia cumque iste tempora quam
       delectus ab molestias voluptatum doloribus itaque similique!
     </p>
-    <a href="https://zrozumiecreact.pl">zrozumiecreact.pl</a>
+    <div class="link"></div>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda qui
       quo nisi iusto corrupti, sequi harum hic, quia cumque iste tempora quam
       delectus ab molestias voluptatum doloribus itaque similique!
     </p>
-    <a href="https://zrozumiecreact.pl">zrozumiecreact.pl</a>
+    <div class="link"></div>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda qui
       quo nisi iusto corrupti, sequi harum hic, quia cumque iste tempora quam
       delectus ab molestias voluptatum doloribus itaque similique!
     </p>
-    <a href="https://zrozumiecreact.pl">zrozumiecreact.pl</a>
+    <div class="link"></div>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda qui
       quo nisi iusto corrupti, sequi harum hic, quia cumque iste tempora quam
       delectus ab molestias voluptatum doloribus itaque similique!
     </p>
+    <script>
+        document.querySelectorAll(".link").forEach((link) => {
+            const anchorElement = document.createElement("a");
+            anchorElement.textContent = "Check the course website!";
+            anchorElement.href = "https://zrozumreact.pl";
+            anchorElement.target = "_blank";
+            anchorElement.rel = "noopener noreferr";
+            link.append(anchorElement);
+        })
+    </script>
   </body>
 </html>
